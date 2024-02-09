@@ -56,5 +56,39 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="PostDeploy" />
+    <Folder Include="PreDeploy" />
+    <Folder Include="PostDeploy\DefaultData" />
+    <Folder Include="Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\tblUser.sql" />
+    <Build Include="Tables\tblPost.sql" />
+    <Build Include="Tables\tblComment.sql" />
+    <Build Include="Tables\tblCondition.sql" />
+    <Build Include="Tables\tblOrder.sql" />
+    <Build Include="Tables\tblOrderItem.sql" />
+    <Build Include="Tables\tblBook.sql" />
+    <Build Include="Tables\tblAuthor.sql" />
+    <Build Include="Tables\tblPublisher.sql" />
+    <Build Include="Tables\tblSubject.sql" />
+    <Build Include="Tables\tblCustomer.sql" />
+    <Build Include="PostDeploy\DefaultData\Users.sql" />
+    <Build Include="PostDeploy\DefaultData\Posts.sql" />
+    <Build Include="PostDeploy\DefaultData\Comments.sql" />
+    <Build Include="PostDeploy\DefaultData\Conditions.sql" />
+    <Build Include="PostDeploy\DefaultData\Orders.sql" />
+    <Build Include="PostDeploy\DefaultData\OrderItems.sql" />
+    <Build Include="PostDeploy\DefaultData\Books.sql" />
+    <Build Include="PostDeploy\DefaultData\Authors.sql" />
+    <Build Include="PostDeploy\DefaultData\Publishers.sql" />
+    <Build Include="PostDeploy\DefaultData\Subjects.sql" />
+    <Build Include="PostDeploy\DefaultData\Customers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeploy\Script.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
