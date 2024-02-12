@@ -18,5 +18,6 @@ Post-Deployment Script Template
 :r .\DefaultData\Books.sql
 :r .\DefaultData\Authors.sql
 :r .\DefaultData\Publishers.sql
+:r .\DefaultData\ShoppingCart.sql
 :r .\DefaultData\Subjects.sql
 :r .\DefaultData\Customers.sql
