@@ -84,6 +84,7 @@
     <Build Include="PostDeploy\DefaultData\Publishers.sql" />
     <Build Include="PostDeploy\DefaultData\Subjects.sql" />
     <Build Include="PostDeploy\DefaultData\Customers.sql" />
+    <Build Include="Tables\tblShoppingCart.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
