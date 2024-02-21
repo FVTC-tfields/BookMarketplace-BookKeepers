@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="2ced8080-ca69-414e-9af9-9f7f6e929534" ChangeDateTime="02/21/2024 18:15:10">
+    <Property Name="ElementName" Value="[dbo].[tblBook].[Status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblBook]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Condition" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3db7259c-4061-4dd4-900a-084d81fea730" ChangeDateTime="02/21/2024 18:23:59">
+    <Property Name="ElementName" Value="[dbo].[tblComment].[Status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblComment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Condition" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8c96fa8a-4278-4b99-a56d-a3253b452f22" ChangeDateTime="02/21/2024 18:30:54">
+    <Property Name="ElementName" Value="[dbo].[tblComment].[Description]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblComment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Comment" />
+  </Operation>
+</Operations>

@@ -1,5 +1,4 @@
-﻿
-BEGIN 
+﻿BEGIN 
 	INSERT INTO tblOrderItem (Id,OrderId,BookId,Quantity,Cost,Photo,Description,Title)
 	VALUES
 	(1,1,1,1,10,'pic.png','This is a book about a guy that is playing a game','Ready Player one'),

@@ -8,5 +8,5 @@
     [Year] DATE NULL, 
     [Photo] VARCHAR(50) NULL, 
     [ISBN] VARCHAR(25) NULL, 
-    [Status] VARCHAR(50) NULL
+    [Condition] VARCHAR(50) NULL
 )
