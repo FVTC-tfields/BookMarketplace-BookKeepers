@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class Post
+    public class Post
     {
+        public int Id { get; set; }
+        
+
     }
 }

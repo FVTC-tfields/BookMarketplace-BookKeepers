@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class Condition
+    public class Condition
     {
+        public int Id { get; set; }
     }
 }
