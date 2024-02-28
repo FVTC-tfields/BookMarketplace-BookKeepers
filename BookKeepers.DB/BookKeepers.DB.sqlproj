@@ -73,17 +73,17 @@
     <Build Include="Tables\tblPublisher.sql" />
     <Build Include="Tables\tblSubject.sql" />
     <Build Include="Tables\tblCustomer.sql" />
-    <Build Include="PostDeploy\DefaultData\Users.sql" />
-    <Build Include="PostDeploy\DefaultData\Posts.sql" />
-    <Build Include="PostDeploy\DefaultData\Comments.sql" />
-    <Build Include="PostDeploy\DefaultData\Conditions.sql" />
-    <Build Include="PostDeploy\DefaultData\Orders.sql" />
-    <Build Include="PostDeploy\DefaultData\OrderItems.sql" />
-    <Build Include="PostDeploy\DefaultData\Books.sql" />
-    <Build Include="PostDeploy\DefaultData\Authors.sql" />
-    <Build Include="PostDeploy\DefaultData\Publishers.sql" />
-    <Build Include="PostDeploy\DefaultData\Subjects.sql" />
-    <Build Include="PostDeploy\DefaultData\Customers.sql" />
+    <None Include="PostDeploy\DefaultData\Users.sql" />
+    <None Include="PostDeploy\DefaultData\Posts.sql" />
+    <None Include="PostDeploy\DefaultData\Comments.sql" />
+    <None Include="PostDeploy\DefaultData\Conditions.sql" />
+    <None Include="PostDeploy\DefaultData\Orders.sql" />
+    <None Include="PostDeploy\DefaultData\OrderItems.sql" />
+    <None Include="PostDeploy\DefaultData\Books.sql" />
+    <None Include="PostDeploy\DefaultData\Authors.sql" />
+    <None Include="PostDeploy\DefaultData\Publishers.sql" />
+    <None Include="PostDeploy\DefaultData\Subjects.sql" />
+    <None Include="PostDeploy\DefaultData\Customers.sql" />
     <Build Include="Tables\tblShoppingCart.sql" />
   </ItemGroup>
   <ItemGroup>
