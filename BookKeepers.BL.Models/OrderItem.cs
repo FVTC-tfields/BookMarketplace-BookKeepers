@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class OrderItem
+    public class OrderItem
     {
+        public int Id { get; set; }
+        public int OrderId { get; set; }
+        public int Bookid { get; set; }
+        public int Quantity { get; set; }
+        public float Cost { get; set; }
+        public string? Photo {  get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        
+        
+
+
+       
     }
 }
