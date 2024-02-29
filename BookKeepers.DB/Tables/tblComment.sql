@@ -5,5 +5,5 @@
     [UserId] INT NULL, 
     [Comment] VARCHAR(50) NULL, 
     [Condition] VARCHAR(50) NULL, 
-    [CreationDate] DATE NULL
+    [CreationDate] VARCHAR(50) NULL
 )

@@ -5,7 +5,7 @@
     [PublisherId] INT NULL, 
     [SubjectId] INT NULL, 
     [Title] VARCHAR(50) NULL, 
-    [Year] DATE NULL, 
+    [Year] VARCHAR(50) NULL, 
     [Photo] VARCHAR(50) NULL, 
     [ISBN] VARCHAR(25) NULL, 
     [Condition] VARCHAR(50) NULL

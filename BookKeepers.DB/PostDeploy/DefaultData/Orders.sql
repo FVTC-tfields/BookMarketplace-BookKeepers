@@ -1,7 +1,7 @@
 ﻿BEGIN
-	INSERT INTO tblOrder (Id,CustomerId,UserId,OrderDate,ShipDate,SubTotal,Total,Tax)
+	INSERT INTO tblOrder (Id, CustomerId, OrderDate, ShipDate, UserId)
 	VALUES
-	(1,1,1,'2024-01-11,2024-01-20 00:00:00',234,1235,45),
-	(2,2,2,'2024-02-01,2024-02-02 00:00:00', 2314,13425,445),
-	(3,3,2,'2024-03-01,2024-03-02 00:00:00', 2134,34125,345)
+	(1, 1, '2024-1-1', '2024-1-2', 1),
+	(2, 2, '2024-2-1', '2024-2-2', 2),
+	(3, 3, '2024-3-1', '2024-3-2', 3)
 END
