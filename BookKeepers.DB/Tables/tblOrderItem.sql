@@ -6,6 +6,6 @@
     [Quantity] INT NULL, 
     [Cost] FLOAT NULL, 
     [Photo] VARCHAR(50) NULL, 
-    [Description] VARCHAR(50) NULL, 
+    [Description] VARCHAR(MAX) NULL, 
     [Title] VARCHAR(50) NULL
 )
