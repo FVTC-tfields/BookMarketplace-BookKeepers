@@ -1,5 +1,5 @@
 ﻿BEGIN 
-	INSERT INTO tblShoppingCart(Id, OrderItemId, NumberOfItems, Cost)
+	INSERT INTO tblShoppingCart (Id, OrderItemId, NumberOfItems, Cost)
 	VALUES
 	(1, 1, 23, 114.99),
 	(2, 2, 12, 34.99),

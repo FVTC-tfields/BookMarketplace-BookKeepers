@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ShoppingCart]
+﻿CREATE TABLE [dbo].[tblShoppingCart]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [OrderItemId] INT NULL, 
