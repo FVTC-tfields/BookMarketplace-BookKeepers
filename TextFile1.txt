@@ -2,4 +2,5 @@ Install-Package Microsoft.EntityFrameworkCore.sqlServer
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
-Scaffold-DbContext "Server=(localdb)\MSSQLLocalDb;Database=IJL.ProgDec.DB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -Context ProgDecEntities -UseDatabaseNames -force
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDb;Database=BookKeepers.DB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -Context BookKeepersEntities -UseDatabaseNames -force
+Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=False;Connect Timeout=60;Encrypt=True;Trust Server Certificate=False;Command Timeout=0
