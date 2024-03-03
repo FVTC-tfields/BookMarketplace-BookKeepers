@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    public class ShoppingCartManager
+    internal class ShoppingCartManager
     {
-
     }
 }

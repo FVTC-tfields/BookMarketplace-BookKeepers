@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class Order
+    public class Order
     {
         public int Id { get; set; }
 

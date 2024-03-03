@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    public class ShoppingCart
+    public   class ShoppingCart
     {
         public int Id { get; set; }
         public int OrderItemId { get; set; }

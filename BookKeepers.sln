@@ -5,18 +5,18 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookKeepers.DB", "BookKeepers.DB\BookKeepers.DB.sqlproj", "{AF8CD0D1-7434-45A5-8C8C-EDA145BDF4BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookKeepers.BL.Models", "BookKeepers.BL.Models\BookKeepers.BL.Models.csproj", "{A5F08FAA-3F84-42E6-BF05-F1D0D54FB5D7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookKeepers.BL", "BookKeepers.BL\BookKeepers.BL.csproj", "{CE976509-F464-4C41-8A54-A00C249F0086}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookKeepers.UI", "BookKeepers.UI\BookKeepers.UI.csproj", "{8ECD7B94-4061-4971-B43D-74E65DA1AEE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookKeepers.PL", "BookKeepers.PL\BookKeepers.PL.csproj", "{B06FF5E3-360F-4AB3-938C-9755BCB9A60B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookKeepers.PL", "BookKeepers.PL\BookKeepers.PL.csproj", "{B06FF5E3-360F-4AB3-938C-9755BCB9A60B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{54DB0624-5D89-4FA1-AE96-836AE837EEA2}"
 	ProjectSection(SolutionItems) = preProject
 		TextFile1.txt = TextFile1.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookKeepers.BL", "BookKeepers.BL\BookKeepers.BL.csproj", "{F8D612E2-4CA8-4146-A798-548A01A475CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookKeepers.BL.Models", "BookKeepers.BL.Models\BookKeepers.BL.Models.csproj", "{DD2A362E-10D8-49DC-9F94-4C7054E1E9C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +30,6 @@ Global
 		{AF8CD0D1-7434-45A5-8C8C-EDA145BDF4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF8CD0D1-7434-45A5-8C8C-EDA145BDF4BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF8CD0D1-7434-45A5-8C8C-EDA145BDF4BA}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{A5F08FAA-3F84-42E6-BF05-F1D0D54FB5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5F08FAA-3F84-42E6-BF05-F1D0D54FB5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5F08FAA-3F84-42E6-BF05-F1D0D54FB5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5F08FAA-3F84-42E6-BF05-F1D0D54FB5D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE976509-F464-4C41-8A54-A00C249F0086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE976509-F464-4C41-8A54-A00C249F0086}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE976509-F464-4C41-8A54-A00C249F0086}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE976509-F464-4C41-8A54-A00C249F0086}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8ECD7B94-4061-4971-B43D-74E65DA1AEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8ECD7B94-4061-4971-B43D-74E65DA1AEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ECD7B94-4061-4971-B43D-74E65DA1AEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,6 +38,14 @@ Global
 		{B06FF5E3-360F-4AB3-938C-9755BCB9A60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06FF5E3-360F-4AB3-938C-9755BCB9A60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B06FF5E3-360F-4AB3-938C-9755BCB9A60B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D612E2-4CA8-4146-A798-548A01A475CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D612E2-4CA8-4146-A798-548A01A475CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D612E2-4CA8-4146-A798-548A01A475CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D612E2-4CA8-4146-A798-548A01A475CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD2A362E-10D8-49DC-9F94-4C7054E1E9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2A362E-10D8-49DC-9F94-4C7054E1E9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2A362E-10D8-49DC-9F94-4C7054E1E9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2A362E-10D8-49DC-9F94-4C7054E1E9C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class Customer
+    public class Customer
     {
         public int Id { get; set; }
         public int UserId { get; set; }

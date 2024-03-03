@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL.Models
 {
-    internal class Author
+    public class Author
     {
         public int Id { get; set; }
 
@@ -15,7 +15,7 @@ namespace BookKeepers.BL.Models
         public string? FirstName { get; set; }
 
         [DisplayName("Last Name")]
-        public string? LastName { get; set;}
+        public string? LastName { get; set; }
 
         [DisplayName("Full Name")]
         public string FullName { get { return FirstName + " " + LastName; } }

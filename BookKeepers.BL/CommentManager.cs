@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    public class CommentManager
+    internal class CommentManager
     {
-
     }
 }

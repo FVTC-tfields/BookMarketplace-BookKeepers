@@ -13,13 +13,8 @@ namespace BookKeepers.BL.Models
         public int Bookid { get; set; }
         public int Quantity { get; set; }
         public float Cost { get; set; }
-        public string? Photo {  get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        
-        
-
-
-       
+        public string? Photo { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
     }
 }
