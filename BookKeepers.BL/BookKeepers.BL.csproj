@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookKeepers.BL.Models\BookKeepers.BL.Models.csproj" />
+    <ProjectReference Include="..\BookKeepers.PL\BookKeepers.PL.csproj" />
+  </ItemGroup>
+
 </Project>

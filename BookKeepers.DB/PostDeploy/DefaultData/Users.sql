@@ -1,7 +1,9 @@
 ﻿BEGIN
-	INSERT INTO tblUser (Id,FirstName,LastName,Password)
+	INSERT INTO tblUser(Id, UserId, FirstName, LastName, Password)
 	VALUES
-	(1,'James','Potter','whyArey0uGay'),
-	(2,'Jim','Bob','ThatsNotIT'),
-	(3,'Becky','Green','WhyIsHeHere')
+	(1, 'askywalker','Anakin', 'Skywalker', 'r2d2'),
+	(2, 'lskywalker', 'Luke', 'Skywalker', 'c3po'),
+	(3, 'okenobi', 'Obiwan', 'Kenobi', 'anakin'),
+	(4, 'tfields', 'Tyler', 'Fields', 'larry'),
+	(5, 'test', 'John', 'Doe', 'testing')
 END
