@@ -9,7 +9,7 @@ namespace BookKeepers.UI.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(UserManager.Load());
         }
 
         public IActionResult Seed()
