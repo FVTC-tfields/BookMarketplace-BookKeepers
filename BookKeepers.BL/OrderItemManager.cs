@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    internal class OrderItemManager
+    public class OrderItemManager
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    internal class PostManager
+    public class PostManager
     {
     }
 }

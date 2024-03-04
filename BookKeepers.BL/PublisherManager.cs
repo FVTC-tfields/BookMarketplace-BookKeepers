@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    internal class PublisherManager
+    public class PublisherManager
     {
     }
 }
