@@ -1,5 +1,5 @@
 ﻿BEGIN 
-	INSERT INTO tblSubject(Id,Subject)
+	INSERT INTO tblSubject(Id,Title)
 	VALUES
 	(1,'Virtual reality'),
 	(2,'Wizards'),

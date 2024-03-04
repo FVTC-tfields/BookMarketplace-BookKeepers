@@ -12,7 +12,7 @@ namespace BookKeepers.BL.Models
         public int PostId { get; set; }
         public int UserId { get; set; }
         public string? Description { get; set; }
-        public string? Status { get; set; }
-        public DateTime Year { get; set; }
+        public string? Condition { get; set; }
+        public string? CreationDate { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace BookKeepers.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Conditions";
-            return View();
+            return View(ConditionManager.Load());
         }
 
         public IActionResult Details(int id)

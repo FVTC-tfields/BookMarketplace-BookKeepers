@@ -1,5 +1,5 @@
 ﻿BEGIN 
-	INSERT INTO tblComment(Id, PostId, UserId, Comment, Condition, CreationDate)
+	INSERT INTO tblComment(Id, PostId, UserId, Description, Condition, CreationDate)
 	VALUES
 	(1, 1, 1, 'This book is seriously water damaged.', '', ''),
 	(2, 2, 2, 'The book arrived I would highly recommend.', '', ''),

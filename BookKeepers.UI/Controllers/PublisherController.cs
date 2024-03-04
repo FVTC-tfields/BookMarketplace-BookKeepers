@@ -10,7 +10,7 @@ namespace BookKeepers.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Publishers";
-            return View();
+            return View(PublisherManager.Load());
         }
 
         public IActionResult Details(int id)

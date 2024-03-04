@@ -10,7 +10,7 @@ namespace TJO.DVDCentral.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Books";
-            return View();
+            return View(BookManager.Load());
         }
 
         public IActionResult Details(int id)

@@ -10,7 +10,7 @@ namespace BookKeepers.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Orders";
-            return View();
+            return View(OrderManager.Load());
         }
 
         public IActionResult Details(int id)

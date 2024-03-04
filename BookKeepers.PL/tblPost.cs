@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookKeepers.BL.Models
+namespace BookKeepers.PL
 {
-    public class Post
+    public class tblPost
     {
         public int Id { get; set; }
         public int UserId { get; set; }

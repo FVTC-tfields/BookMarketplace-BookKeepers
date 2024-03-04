@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookKeepers.BL.Models
+namespace BookKeepers.PL
 {
-    public class Order
+    public class tblOrder
     {
         public int Id { get; set; }
 

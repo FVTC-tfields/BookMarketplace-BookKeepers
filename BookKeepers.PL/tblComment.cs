@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookKeepers.BL.Models
+namespace BookKeepers.PL
 {
-    public class Post
+    public class tblComment
     {
         public int Id { get; set; }
+        public int PostId { get; set; }
         public int UserId { get; set; }
-        public int BookId { get; set; }
-        public int ConditionId { get; set; }
         public string? Description { get; set; }
-        public double Price { get; set; }
+        public string? Condition { get; set; }
+        public string? CreationDate { get; set; }
     }
 }

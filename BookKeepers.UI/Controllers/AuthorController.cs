@@ -10,7 +10,7 @@ namespace AuthorKeepers.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Authors";
-            return View();
+            return View(AuthorManager.Load());
         }
 
         public IActionResult Details(int id)

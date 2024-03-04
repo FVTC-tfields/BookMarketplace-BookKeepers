@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookKeepers.BL.Models
+namespace BookKeepers.PL
 {
-    public class Book
+    public class tblBook
     {
         public int Id { get; set; }
         public int AuthorId { get; set; }

@@ -10,7 +10,7 @@ namespace BookKeepers.UI.Controllers
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Comments";
-            return View();
+            return View(CommentManager.Load());
         }
 
         public IActionResult Details(int id)
