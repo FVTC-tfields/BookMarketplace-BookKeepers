@@ -62,7 +62,7 @@ namespace BookKeepers.BL
 
                     tblUser entity = new tblUser();
 
-                    entity.Id = user.Id;
+                    entity.Id = dc.tblUsers.Any() ? dc.tblUsers.Max(u => u.Id) + 1 : 1;
                     entity.UserName = user.UserName;
                     entity.FirstName = user.FirstName;
                     entity.LastName = user.LastName;
@@ -78,7 +78,7 @@ namespace BookKeepers.BL
                     if (rollback) transaction.Rollback();
                 }
 
-                return 0;
+                return results;
             }
             catch (Exception)
             {
