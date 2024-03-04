@@ -107,5 +107,27 @@ namespace BookKeepers.UI.Controllers
                 return View(user);
             }
         }
+
+        // GET: UserController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View(UserManager.LoadById(id));
+        }
+
+        // POST: UserController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, bool rollback = false)
+        {
+            try
+            {
+                UserManager.Delete(id, rollback);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

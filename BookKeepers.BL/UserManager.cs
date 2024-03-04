@@ -229,7 +229,8 @@ namespace BookKeepers.BL
                          s.UserId,
                          s.FirstName,
                          s.LastName,
-                         s.Password
+                         s.Password,
+                         s.UserName
 
                      })
                      .ToList()
@@ -239,7 +240,8 @@ namespace BookKeepers.BL
                         UserId = user.UserId,
                         FirstName = user.FirstName,
                         LastName = user.LastName,
-                        Password = user.Password
+                        Password = user.Password,
+                        UserName = user.UserName
                     }));
                 }
 
@@ -267,7 +269,8 @@ namespace BookKeepers.BL
                             UserId = entity.UserId,
                             FirstName = entity.FirstName,
                             LastName = entity.LastName,
-                            Password = entity.Password
+                            Password = entity.Password,
+                            UserName = entity.UserName
 
                         };
                     }
@@ -282,6 +285,43 @@ namespace BookKeepers.BL
             {
 
                 throw;
+            }
+        }
+
+        public static int Delete(int id, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblUser row = dc.tblUsers.FirstOrDefault(s => s.Id == id);
+
+
+                    if (row != null)
+                    {
+                        dc.tblUsers.Remove(row);
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
