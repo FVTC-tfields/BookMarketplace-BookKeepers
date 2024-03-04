@@ -5,203 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace BookKeepers.BL
 {
-    public static class CustomerManager
+    public class CustomerManager
     {
-
-        public static int Insert(Customer customer, bool rollback = false)
-        {
-            try
-            {
-                int results = 0;
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    IDbContextTransaction transaction = null;
-                    if (rollback) transaction = dc.Database.BeginTransaction();
-
-                    tblCustomer entity = new tblCustomer();
-
-
-                    entity.Id = customer.Id;
-                    entity.UserId = customer.UserId;
-                    entity.Address = customer.Address;
-                    entity.City = customer.City;
-                    entity.State = customer.State;
-                    entity.ZIP = customer.ZIP;
-                    entity.Phone = customer.Phone;
-
-
-                    // IMPORTANT - BACK FILL THE ID
-                    customer.Id = entity.Id;
-
-                    dc.tblCustomers.Add(entity);
-                    results = dc.SaveChanges();
-
-                    if (rollback) transaction.Rollback();
-
-                }
-
-                return results;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static int Update(Customer customer, bool rollback = false)
-        {
-            try
-            {
-                int results = 0;
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    IDbContextTransaction transaction = null;
-                    if (rollback) transaction = dc.Database.BeginTransaction();
-
-                    // Get the row that we are trying to update
-                    tblCustomer entity = dc.tblCustomers.FirstOrDefault(s => s.Id == customer.Id);
-
-                    if (entity != null)
-                    {
-                        entity.UserId = customer.UserId;
-                        entity.Address = customer.Address;
-                        entity.City = customer.City;
-                        entity.State = customer.State;
-                        entity.ZIP = customer.ZIP;
-                        entity.Phone = customer.Phone;
-                        results = dc.SaveChanges();
-                    }
-                    else
-                    {
-                        throw new Exception("Row does not exist");
-                    }
-
-                    if (rollback) transaction.Rollback();
-                }
-                return results;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static int Delete(int id, bool rollback = false)
-        {
-            try
-            {
-                int results = 0;
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    IDbContextTransaction transaction = null;
-                    if (rollback) transaction = dc.Database.BeginTransaction();
-
-                    // Get the row that we are trying to update
-                    tblCustomer entity = dc.tblCustomers.FirstOrDefault(s => s.Id == id);
-
-                    if (entity != null)
-                    {
-                        dc.tblCustomers.Remove(entity);
-                        results = dc.SaveChanges();
-                    }
-                    else
-                    {
-                        throw new Exception("Row does not exist");
-                    }
-
-                    if (rollback) transaction.Rollback();
-                }
-                return results;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static Customer LoadById(int id)
-        {
-            try
-            {
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    tblCustomer entity = dc.tblCustomers.FirstOrDefault(s => s.Id == id);
-
-                    if (entity != null)
-                    {
-                        return new Customer
-                        {
-                            Id = entity.Id,
-                            UserId = entity.UserId,
-                            Address = entity.Address,
-                            City = entity.City,
-                            State = entity.State,
-                            ZIP = entity.ZIP,
-                            Phone = entity.Phone
-
-                        };
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static Customer? LoadByUserId(int userId)
-        {
-            try
-            {
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    tblCustomer? entity = dc.tblCustomers.FirstOrDefault(s => s.UserId == userId);
-
-                    if (entity != null)
-                    {
-                        return new Customer
-                        {
-                            Id = entity.Id,
-                            UserId = entity.UserId,
-                            Address = entity.Address,
-                            City = entity.City,
-                            State = entity.State,
-                            ZIP = entity.ZIP,
-                            Phone = entity.Phone
-                        };
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public static List<Customer> Load()
         {
             try
             {
-                List<Customer> list = new List<Customer>();
+                List<Customer> rows = new List<Customer>();
 
                 using (BookKeepersEntities dc = new BookKeepersEntities())
                 {
@@ -209,32 +24,255 @@ namespace BookKeepers.BL
                      select new
                      {
                          s.Id,
-                         s.UserId,
-                         s.Address,
-                         s.City,
+                         s.FirstName,
+                         s.LastName,
+                         s.Phone,
                          s.State,
+                         s.City,
+                         s.Address,
                          s.ZIP,
-                         s.Phone
-                     })
-                     .ToList()
-                    .ForEach(customer => list.Add(new Customer
-                    {
-                        Id = customer.Id,
-                        UserId = customer.UserId,
-                        Address = customer.Address,
-                        City = customer.City,
-                        State = customer.State,
-                        ZIP = customer.ZIP,
-                        Phone = customer.Phone
-                    }));
+                         s.UserId
+                     }).ToList()
+                     .ForEach(Customer => rows.Add(new Customer
+                     {
+                         Id = Customer.Id,
+                         Phone = Customer.Phone,
+                         State = Customer.State,
+                         City = Customer.City,
+                         Address = Customer.Address,
+                         ZIP = Customer.ZIP,
+                         UserId = Customer.UserId
+                     }));
                 }
 
-                return list;
+                return rows;
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
+            }
+        }
+
+        public static Customer LoadById(int id)
+        {
+            try
+            {
+
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblCustomer row = dc.tblCustomers.Where(s => s.Id == id).FirstOrDefault();
+
+                    if (row != null)
+                    {
+                        return new Customer
+                        {
+                            Id = row.Id,
+                            Phone = row.Phone,
+                            State = row.State,
+                            City = row.City,
+                            Address = row.Address,
+                            ZIP = row.ZIP,
+                            UserId = row.UserId
+                        };
+
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static int Insert(Customer customer, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblCustomer row = new tblCustomer();
+
+                    row.Id = dc.tblCustomers.Any() ? dc.tblCustomers.Max(s => s.Id) + 1 : 1;
+
+                    row.Address = customer.Address;
+                    row.ZIP = customer.ZIP;
+                    row.UserId = customer.UserId;
+                    row.City = customer.City;
+                    row.Address = customer.Address;
+                    row.Phone = customer.Phone;
+                    row.State = customer.State;
+
+                    customer.Id = row.Id;
+
+                    dc.tblCustomers.Add(row);
+
+                    results = dc.SaveChanges();
+
+                    if (rollback) dbContextTransaction.Rollback();
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public static int Delete(int id, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblCustomer row = dc.tblCustomers.FirstOrDefault(s => s.Id == id);
+
+
+                    if (row != null)
+                    {
+                        dc.tblCustomers.Remove(row);
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int Update(Customer customer, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblCustomer row = dc.tblCustomers.FirstOrDefault(s => s.Id == customer.Id);
+
+                    if (row != null)
+                    {
+
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int GetAssociateCustomerId(int userId)
+        {
+            try
+            {
+
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblCustomer row = dc.tblCustomers.Where(s => s.UserId == userId).FirstOrDefault();
+
+                    if (row != null)
+                    {
+                        return row.Id;
+
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static int AssignUserId(JSonModel jSonModel, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblCustomer row = dc.tblCustomers.FirstOrDefault(s => s.Id == jSonModel.customerId);
+
+                    if (row != null)
+                    {
+                        row.UserId = jSonModel.userId;
+
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
