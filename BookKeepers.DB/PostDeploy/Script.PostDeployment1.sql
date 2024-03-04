@@ -9,7 +9,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
---:r .\DefaultData\Users.sql
+:r .\DefaultData\Users.sql
 :r .\DefaultData\Posts.sql
 :r .\DefaultData\Comments.sql
 :r .\DefaultData\Conditions.sql

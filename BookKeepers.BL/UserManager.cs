@@ -24,14 +24,14 @@ namespace BookKeepers.BL
 
     public static class UserManager
     {
-        public static string GetHash(string password)
-        {
-            using (var hasher = SHA1.Create())
-            {
-                var hashbytes = Encoding.UTF8.GetBytes(password);
-                return Convert.ToBase64String(hasher.ComputeHash(hashbytes));
-            }
-        }
+        //public static string GetHash(string password)
+        //{
+        //    using (var hasher = SHA1.Create())
+        //    {
+        //        var hashbytes = Encoding.UTF8.GetBytes(password);
+        //        return Convert.ToBase64String(hasher.ComputeHash(hashbytes));
+        //    }
+        //}
 
         public static int DeleteAll()
         {
@@ -62,12 +62,12 @@ namespace BookKeepers.BL
 
                     tblUser entity = new tblUser();
 
-                    entity.Id = dc.tblUsers.Any() ? dc.tblCustomers.Max(s => s.Id) + 1 : 1;
+                    entity.Id = user.Id;
                     entity.UserName = user.UserName;
                     entity.FirstName = user.FirstName;
                     entity.LastName = user.LastName;
                     entity.UserId = user.UserId;
-                    entity.Password = GetHash(user.Password);
+                    entity.Password = user.Password;
 
                     // IMPORTANT - BACK FILL THE ID
                     user.Id = entity.Id;
@@ -100,7 +100,7 @@ namespace BookKeepers.BL
                             tblUser tblUser = dc.tblUsers.FirstOrDefault(u => u.UserId == user.UserId);
                             if (tblUser != null)
                             {
-                                if (tblUser.Password == GetHash(user.Password))
+                                if (tblUser.Password == user.Password)
                                 {
                                     // Login successful
                                     user.Id = tblUser.Id;
@@ -144,27 +144,35 @@ namespace BookKeepers.BL
         {
             using (BookKeepersEntities dc = new BookKeepersEntities())
             {
-                if (!dc.tblUsers.Any())
+                try
                 {
-                    User user = new User
+                    if (!dc.tblUsers.Any())
                     {
-                        UserId = "test",
-                        UserName = "test",
-                        FirstName = "John",
-                        LastName = "Doe",
-                        Password = "testing"
-                    };
-                    Insert(user);
+                        User user = new User
+                        {
+                            UserId = "test",
+                            UserName = "test",
+                            FirstName = "John",
+                            LastName = "Doe",
+                            Password = "testing"
+                        };
+                        Insert(user);
 
-                    user = new User
-                    {
-                        UserId = "tfields",
-                        UserName = "tfields",
-                        FirstName = "Tyler",
-                        LastName = "Fields",
-                        Password = "larry"
-                    };
-                    Insert(user);
+                        user = new User
+                        {
+                            UserId = "tfields",
+                            UserName = "tfields",
+                            FirstName = "Tyler",
+                            LastName = "Fields",
+                            Password = "larry"
+                        };
+                        Insert(user);
+                    }
+                   
+                }
+                catch (Exception e)
+                {
+                    var x = 0;
                 }
             }
         }
@@ -212,7 +220,7 @@ namespace BookKeepers.BL
 
                 using (BookKeepersEntities dc = new BookKeepersEntities())
                 {
-                    //var stuff = dc.tblUsers.ToList();
+                    //var stuff = dc.tblUser.ToList();
 
                     (from s in dc.tblUsers
                      select new
