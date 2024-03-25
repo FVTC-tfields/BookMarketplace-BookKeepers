@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <span class="btn btn-outline-success">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</span>
+                <span class="btn btn-outline-info">@Html.ActionLink("Details", "Details", new { id = item.Id }) </span>
+                <span class="btn btn-outline-danger">@Html.ActionLink("Delete", "Delete", new { id = item.Id }) </span>
             </td>
         </tr>
 }
