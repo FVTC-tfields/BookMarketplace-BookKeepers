@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
@@ -12,16 +13,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AuthorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublisherName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubjectName)
-            </th>
-            <th>
+            
+             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
@@ -33,21 +26,25 @@
             <th>
                 @Html.DisplayNameFor(model => model.ISBN)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublisherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubjectName)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -61,9 +58,21 @@
                 @Html.DisplayFor(modelItem => item.ISBN)
             </td>
             <td>
-                <span class="btn btn-outline-success">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</span>
-                <span class="btn btn-outline-info">@Html.ActionLink("Details", "Details", new { id = item.Id }) </span>
-                <span class="btn btn-outline-danger">@Html.ActionLink("Delete", "Delete", new { id = item.Id }) </span>
+                @Html.DisplayFor(modelItem => item.Condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             </td>
         </tr>
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +24,5 @@ namespace BookKeepers.BL.Models
         public string? PublisherName { get; set; }
         [DisplayName("Subject")]
         public string? SubjectName { get; set; }
-        
     }
 }
