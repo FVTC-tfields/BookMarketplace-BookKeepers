@@ -40,5 +40,38 @@ namespace BookKeepers.BL
                 throw;
             }
         }
+
+        public static Subject GetById(int id)
+        {
+            try
+            {
+
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblSubject? row = dc.tblSubjects.Where(s => s.Id == id).FirstOrDefault();
+
+                    if (row != null)
+                    {
+                        return new Subject
+                        {
+                            Id = row.Id,
+                            Title = row.Title,
+                        };
+
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

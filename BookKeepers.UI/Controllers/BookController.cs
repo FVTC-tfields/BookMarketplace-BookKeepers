@@ -1,6 +1,8 @@
 ﻿using BookKeepers.BL;
 using BookKeepers.BL.Models;
+using BookKeepers.UI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Xml.Linq;
 
 namespace TJO.DVDCentral.UI.Controllers
@@ -15,12 +17,14 @@ namespace TJO.DVDCentral.UI.Controllers
 
         public IActionResult Details(int id)
         {
-            return View();
+            Book book = BookManager.GetById(id, true);
+            return View(book);
         }
 
         public IActionResult Create()
         {
             ViewBag.Title = "Create Book";
+            LoadSelectValueList();
             return View();
         }
         [HttpPost]
@@ -29,6 +33,7 @@ namespace TJO.DVDCentral.UI.Controllers
         {
             try
             {
+                int result = BookManager.Insert(book);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
@@ -40,7 +45,9 @@ namespace TJO.DVDCentral.UI.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            Book book = BookManager.GetById(id);
+            LoadSelectValueList();
+            return View(book);
         }
 
         [HttpPost]
@@ -48,6 +55,7 @@ namespace TJO.DVDCentral.UI.Controllers
         {
             try
             {
+                int result = BookManager.Update(book);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -59,14 +67,15 @@ namespace TJO.DVDCentral.UI.Controllers
 
         public IActionResult Delete(int id)
         {
-            return View();
+            return View(BookManager.GetById(id, true));
         }
 
         [HttpPost]
-        public IActionResult Delete(int id, Book book, bool rollback = false)
+        public IActionResult Delete(int id, Book book)
         {
             try
             {
+                BookManager.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -75,5 +84,18 @@ namespace TJO.DVDCentral.UI.Controllers
                 return View(book);
             }
         }
+
+        [NonAction]
+        private void LoadSelectValueList()
+        {
+            var authors = AuthorManager.Load();
+            ViewBag.Authors = new SelectList(authors, "Id", "FullName");
+            var publishers = PublisherManager.Load();
+            ViewBag.Publishers = new SelectList(publishers, "Id", "Name");
+            var subjects = SubjectManager.Load();
+            ViewBag.subjects = new SelectList(subjects, "Id", "Title");
+        }
+
+        
     }
 }

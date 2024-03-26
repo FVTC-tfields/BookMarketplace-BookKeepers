@@ -53,6 +53,12 @@ namespace BookKeepers.UI.Controllers
             }
         }
 
+        public IActionResult Details(int id)
+        {
+            User user = UserManager.LoadById(id);
+            return View(user);
+        }
+
         public IActionResult Logout()
         {
             ViewBag.Title = "Logout";

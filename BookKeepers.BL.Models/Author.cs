@@ -17,7 +17,7 @@ namespace BookKeepers.BL.Models
         [DisplayName("Last Name")]
         public string? LastName { get; set; }
 
-        [DisplayName("Full Name")]
-        public string FullName { get { return FirstName + " " + LastName; } }
+        [DisplayName("Author Name")]
+        public string? FullName { get { return FirstName + " " + LastName; } }
     }
 }

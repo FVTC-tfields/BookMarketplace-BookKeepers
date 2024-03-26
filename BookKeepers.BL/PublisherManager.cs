@@ -40,5 +40,38 @@ namespace BookKeepers.BL
                 throw;
             }
         }
+
+        public static Publisher GetById(int id) 
+        {
+            try
+            {
+
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblPublisher? row = dc.tblPublishers.Where(s => s.Id == id).FirstOrDefault();
+
+                    if (row != null)
+                    {
+                        return new Publisher
+                        {
+                            Id = row.Id,
+                            Name = row.Name,
+                        };
+
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

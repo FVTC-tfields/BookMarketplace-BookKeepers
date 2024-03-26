@@ -42,5 +42,37 @@ namespace BookKeepers.BL
                 throw;
             }
         }
+
+        public static Author GetById(int id)
+        {
+            try
+            {
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblAuthor? row = dc.tblAuthors.Where(s => s.Id == id).FirstOrDefault();
+
+                    if (row != null)
+                    {
+                        return new Author
+                        {
+                            Id = row.Id,
+                            LastName= row.LastName,
+                            FirstName = row.FirstName
+                        };
+
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
