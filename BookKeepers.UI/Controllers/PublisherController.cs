@@ -15,7 +15,7 @@ namespace BookKeepers.UI.Controllers
 
         public IActionResult Details(int id)
         {
-            return View();
+            return View(PublisherManager.GetById(id));
         }
 
         public IActionResult Create()
@@ -29,6 +29,7 @@ namespace BookKeepers.UI.Controllers
         {
             try
             {
+                int result = PublisherManager.Insert(publisher);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
@@ -40,7 +41,7 @@ namespace BookKeepers.UI.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            return View(PublisherManager.GetById(id));
         }
 
         [HttpPost]
@@ -48,6 +49,7 @@ namespace BookKeepers.UI.Controllers
         {
             try
             {
+                int result = PublisherManager.Update(publisher);    
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -59,7 +61,7 @@ namespace BookKeepers.UI.Controllers
 
         public IActionResult Delete(int id)
         {
-            return View();
+            return View(PublisherManager.GetById(id));
         }
 
         [HttpPost]
@@ -67,6 +69,7 @@ namespace BookKeepers.UI.Controllers
         {
             try
             {
+                int result = PublisherManager.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)

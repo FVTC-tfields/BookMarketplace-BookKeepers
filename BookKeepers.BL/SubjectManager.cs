@@ -1,5 +1,6 @@
 ﻿using BookKeepers.BL.Models;
 using BookKeepers.PL;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +71,116 @@ namespace BookKeepers.BL
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public static int Insert(Subject subject, bool rollback = false)
+        {
+            int result = 0;
+
+            try
+            {
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback)
+                        dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblSubject row = new tblSubject();
+
+                    row.Id = dc.tblSubjects.Any() ? dc.tblSubjects.Max(s => s.Id) + 1 : 1;
+
+                    row.Title = subject.Title;
+
+                    subject.Id = row.Id;
+
+                    dc.tblSubjects.Add(row);
+
+                    result = dc.SaveChanges();
+
+                    if (rollback)
+                        dbContextTransaction.Rollback();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int Delete(int id, bool rollback = false)
+        {
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblSubject row = dc.tblSubjects.FirstOrDefault(s => s.Id == id);
+
+
+                    if (row != null)
+                    {
+                        dc.tblSubjects.Remove(row);
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int Update(Subject subject, bool rollback = false)
+        {
+
+            try
+            {
+                int results = 0;
+
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    IDbContextTransaction dbContextTransaction = null;
+
+                    if (rollback) dbContextTransaction = dc.Database.BeginTransaction();
+
+                    tblSubject row = dc.tblSubjects.FirstOrDefault(s => s.Id == subject.Id);
+
+                    if (row != null)
+                    {
+                        row.Title = subject.Title;
+
+                        results = dc.SaveChanges();
+
+                        if (rollback) dbContextTransaction.Rollback();
+                    }
+                    else
+                    {
+                        throw new Exception("Row does not exist.");
+                    }
+
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
