@@ -1,0 +1,33 @@
+﻿/*This is all the stuff for the Nav*/
+.nav-Home {
+    font-size: 1.25rem;
+}
+
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav-li {
+    float: left;
+}
+
+.nav-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem 1rem 1rem;
+    text-decoration: none;
+}
+
+.nav-li a:hover {
+    background-color: red;
+}
+.active{
+    background-color: red;
+    
+}
+/*END NAV*/
