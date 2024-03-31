@@ -31,3 +31,42 @@
     
 }
 /*END NAV*/
+/*Books box*/
+.flexbox{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-around;
+}
+
+.boxLink {
+    display:block;
+    text-decoration: none;
+    color: black;
+}
+
+.books {
+    width: 15rem;
+    height: 25rem;
+    overflow:hidden;
+    box-shadow: 1px 1px 10px 1px black;
+    background-color:white;
+    
+  
+}
+    .books:hover {
+        width: 20rem;
+        height: 30rem;
+    }
+    .books img {
+        width: inherit;
+        height: 82%;
+        
+    }
+.info{
+    height:5rem;
+    width:auto;
+    padding:0.1rem;
+    padding-left:0.5rem;
+    background-color: white;
+}
+/*END BOOK BOX*/
