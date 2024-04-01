@@ -91,13 +91,13 @@ namespace BookKeepers.BL
         {
             try
             {
-                if (!string.IsNullOrEmpty(user.UserId))
+                if (!string.IsNullOrEmpty(user.UserName))
                 {
                     if (!string.IsNullOrEmpty(user.Password))
                     {
                         using (BookKeepersEntities dc = new BookKeepersEntities())
                         {
-                            tblUser tblUser = dc.tblUsers.FirstOrDefault(u => u.UserId == user.UserId);
+                            tblUser tblUser = dc.tblUsers.FirstOrDefault(u => u.UserName == user.UserName);
                             if (tblUser != null)
                             {
                                 if (tblUser.Password == user.Password)
@@ -187,7 +187,7 @@ namespace BookKeepers.BL
                     if (rollback) transaction = dc.Database.BeginTransaction();
 
                     // Get the row that we are trying to update
-                    tblUser entity = dc.tblUsers.FirstOrDefault(s => s.Id == user.Id);
+                    tblUser entity = dc.tblUsers.FirstOrDefault(s => s.UserName == user.UserName);
 
                     if (entity != null)
                     {
