@@ -10,6 +10,7 @@ namespace BookKeepers.BL.Models
 {
     public class Order
     {
+        public List<OrderItem> OrderItems { get; set; }
         public int Id { get; set; }
 
         [DisplayName("Customer Id")]
@@ -20,11 +21,11 @@ namespace BookKeepers.BL.Models
 
         [DisplayName("Order Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public string? OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
         [DisplayName("Ship Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public string? ShipDate { get; set; }
+        public DateTime ShipDate { get; set; }
 
         public float SubTotal { get; set; }
 

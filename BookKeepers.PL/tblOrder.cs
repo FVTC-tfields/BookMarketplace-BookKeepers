@@ -20,12 +20,12 @@ namespace BookKeepers.PL
 
         [DisplayName("Order Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public string? OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
         [DisplayName("Ship Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public string? ShipDate { get; set; }
-
+        public DateTime ShipDate { get; set; }
+        public virtual ICollection<tblOrderItem> OrderItems { get; set; }
         public float SubTotal { get; set; }
 
         public float Total { get; set; }

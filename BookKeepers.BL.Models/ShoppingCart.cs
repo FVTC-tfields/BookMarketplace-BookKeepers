@@ -8,11 +8,44 @@ namespace BookKeepers.BL.Models
 {
     public   class ShoppingCart
     {
-        public int Id { get; set; }
-        public int OrderItemId { get; set; }
-        public int NumberOfItems { get; set; }
-        public float SubTotal { get; set; }
-        public float Tax { get; set; }
-        public float Total { get; set; }
+        public List<Book> Items { get; set; }
+        public int TotalCount { get { return Items.Count; } }
+
+        public int CustomerId { get; set; }
+        public int UserId { get; set; }
+        public double TotalCost { get; set; }
+        public double Tax { get { return TotalCost * .05; } }
+        public double TCt { get { return TotalCost + Tax; } }
+
+        public ShoppingCart()
+        {
+            Items = new List<Book>();
+        }
+
+        public void Add(Book book)
+        {
+            if (!Items.Any(n => n.Id == book.Id))
+            {
+                Items.Add(book);
+            }
+            else
+            {
+                foreach (var item in Items.Where(n => n.Id == book.Id))
+                {
+                    item.Quantity++;
+                }
+            }
+
+            TotalCost += book.Cost;
+        }
+
+        public void Remove(Book book)
+        {
+            foreach (var item in Items.Where(n => n.Id == book.Id))
+            {
+                TotalCost -= (item.Cost * item.Quantity);
+            }
+            Items.Remove(book);
+        }
     }
 }

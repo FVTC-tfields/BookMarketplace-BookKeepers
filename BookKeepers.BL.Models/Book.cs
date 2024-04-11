@@ -17,6 +17,8 @@ namespace BookKeepers.BL.Models
         public string? Year { get; set; }
         public string? Photo { get; set; }
         public string? ISBN { get; set; }
+        public int Quantity { get; set; }
+        public int Cost { get; set; }
         public string? Condition { get; set; }
         [DisplayName("Author")]
         public string? AuthorName { get; set; }
