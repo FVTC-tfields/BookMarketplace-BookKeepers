@@ -14,28 +14,28 @@
 <body>
     <header>
         <nav class="">
-            <div class="container">
-                <div class="">
+
+            <div class="Nav-container">
                     <ul class="nav-ul">
-                        <li class="nav-li">
+                        <li class="nav-li ">
                             <a class="nav-Home" asp-area="" asp-controller="Home" asp-action="Index">BookKeepers</a>
                         </li>
-                        <li class="nav-li @(ViewBag.Active=="Book"? "active" : "")">
+                    <li class="nav-li a1 @(ViewBag.Active=="Book"? "active" : "")">
                             <a class="" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
                         </li>
-                        <li class="nav-li @(ViewBag.Active=="ShoppingCart"? "active" : "")">
+                    <li class="nav-li a2 @(ViewBag.Active=="ShoppingCart"? "active" : "")">
                             <a class="" asp-area="" asp-controller="ShoppingCart" asp-action="Index">Shopping Cart</a>
                         </li>
                         @{
                             if (BookKeepers.UI.Models.Authenticate.IsAuthenticated(Context))
                             {
-                                <li class="nav-li @(ViewBag.Active=="User"? "active" : "")">
+                            <li class="nav-li a3 @(ViewBag.Active=="User"? "active" : "")">
                                     <a class="" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
                                 </li>
                             }
                             else
                             {
-                                <li class="nav-li @(ViewBag.Active=="User"? "active" : "")">
+                            <li class="nav-li a3 @(ViewBag.Active=="User"? "active" : "")">
                                     <a class="" asp-area="" asp-controller="User" asp-action="Login">Login</a>
                                 </li>
                             }
@@ -52,7 +52,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            
         </nav>
     </header>
     <div class="container">

@@ -1,6 +1,13 @@
 ﻿/*This is all the stuff for the Nav*/
+.Nav-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 960px;
+}
 .nav-Home {
     font-size: 1.25rem;
+    background-color:black;
 }
 
 .nav-ul {
@@ -8,11 +15,11 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #EAEDED;
 }
-
 .nav-li {
     float: left;
+    
 }
 
 .nav-li a {
@@ -21,14 +28,44 @@
     text-align: center;
     padding: 1rem 1rem 1rem 1rem;
     text-decoration: none;
-}
-
-.nav-li a:hover {
-    background-color: red;
-}
-.active{
-    background-color: red;
     
+}
+.a1 {
+    margin-left: 1rem;
+    background-color: blue;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: -10px 0px 0px 0px blue,10px 0px 0px 0px blue;
+    position: relative;
+    z-index: 99;
+}
+.a1:hover{
+    background-color:lightblue;
+
+}
+.a2 {
+    background-color: red;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: -10px 0px 0px 0px red,10px 0px 0px 0px red;
+    position: relative;
+    z-index: 100;
+}
+.a2:hover {
+    background-color: lightcoral;
+}
+.a3 {
+    background-color: green;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: -10px 0px 0px 0px green,10px 0px 0px 0px green;
+    position: relative;
+    z-index: 99;
+}
+.a3:hover {
+    background-color: lightgreen;
+}
+.active {
+    border-radius: 20px 20px 0px 0px;
+    position:relative;
+    z-index: 102;
 }
 /*END NAV*/
 /*Books box*/
