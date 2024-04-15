@@ -17,6 +17,8 @@ namespace BookKeepers.BL.Models
         public double Tax { get { return TotalCost * .05; } }
         public double TCt { get { return TotalCost + Tax; } }
 
+        public int Id { get; set; }
+
         public ShoppingCart()
         {
             Items = new List<Book>();
