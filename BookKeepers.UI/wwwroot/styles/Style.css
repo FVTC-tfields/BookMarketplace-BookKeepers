@@ -5,11 +5,6 @@
     margin-left: auto;
     max-width: 960px;
 }
-.nav-Home {
-    font-size: 1.25rem;
-    background-color:black;
-}
-
 .nav-ul {
     list-style-type: none;
     margin: 0;
@@ -30,42 +25,54 @@
     text-decoration: none;
     
 }
+.nav-Home {
+    font-size: 1.25rem;
+    background-color: black;
+}
+.nav-Home:hover {
+    color: yellow;
+}
 .a1 {
     margin-left: 1rem;
     background-color: blue;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     box-shadow: -10px 0px 0px 0px blue,10px 0px 0px 0px blue;
     position: relative;
-    z-index: 99;
+    z-index: 101;
 }
-.a1:hover{
-    background-color:lightblue;
-
-}
+    .a1:hover {
+        background-color: darkblue;
+        box-shadow: -10px 0px 0px 0px darkblue,10px 0px 0px 0px darkblue;
+    }
 .a2 {
     background-color: red;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     box-shadow: -10px 0px 0px 0px red,10px 0px 0px 0px red;
     position: relative;
     z-index: 100;
 }
-.a2:hover {
-    background-color: lightcoral;
-}
+    .a2:hover {
+        background-color: darkred;
+        box-shadow: -10px 0px 0px 0px darkred,10px 0px 0px 0px darkred;
+    }
 .a3 {
     background-color: green;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     box-shadow: -10px 0px 0px 0px green,10px 0px 0px 0px green;
     position: relative;
     z-index: 99;
 }
-.a3:hover {
-    background-color: lightgreen;
-}
+    .a3:hover {
+        background-color: darkgreen;
+        box-shadow: -10px 0px 0px 0px darkgreen,10px 0px 0px 0px darkgreen;
+    }
 .active {
     border-radius: 20px 20px 0px 0px;
     position:relative;
     z-index: 102;
+}
+.a1:hover .a2:hover .a3:hover{
+    color:yellow;
 }
 /*END NAV*/
 /*Books box*/
