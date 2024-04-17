@@ -48,7 +48,8 @@ public partial class BookKeepersEntities : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //=> optionsBuilder.UseSqlServer(@"Data Source=bookmarketplace.database.windows.net;Initial Catalog=bookmarketplace;User ID=bookmarket;Password=!Testing*1;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-    => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=BookKeepers.DB;Integrated Security=True");
+    => optionsBuilder.UseSqlServer(@"Data Source=SQL8005.site4now.net;Initial Catalog=db_a9fbe1_bookmarket;User Id=db_a9fbe1_bookmarket_admin;Password=!Testing*1");
+    //=> optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=BookKeepers.DB;Integrated Security=True");
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

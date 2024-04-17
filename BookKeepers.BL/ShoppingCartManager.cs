@@ -68,10 +68,11 @@ namespace BookKeepers.BL
         {
             cart.Remove(book);
         }
-
+        /*
         public static string? Load()
         {
             throw new NotImplementedException();
         }
+        */
     }
 }
