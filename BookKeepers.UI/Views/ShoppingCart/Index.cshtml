@@ -1,72 +1,112 @@
-﻿@model IEnumerable<BookKeepers.BL.Models.ShoppingCart>
+﻿@model BookKeepers.BL.Models.ShoppingCart
+
 
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "Shopping Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TCt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Cost
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalCount)
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalCost)
+                @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TCt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Id })
             </td>
         </tr>
-}
-    </tbody>
+    }
+</table>
+<hr>
+<table class="table">
+    <tr>
+        <td class="font-weight-bold">Total Cost</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.TotalCost.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="font-weight-bold">Tax</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.Tax.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="font-weight-bold">Total Cost</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.TCt.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Check Out", "Checkout", "ShoppingCart", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
 </table>
