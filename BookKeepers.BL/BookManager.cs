@@ -235,5 +235,44 @@ namespace BookKeepers.BL
                 throw ex;
             }
         }
+
+        public static Book LoadById(int id)
+        {
+            try
+            {
+                using (BookKeepersEntities dc = new BookKeepersEntities())
+                {
+                    tblBook entity = dc.tblBooks.FirstOrDefault(m => m.Id == id);
+
+                    if (entity != null)
+                    {
+                        return new Book
+                        {
+                            Id = entity.Id,
+                            Title = entity.Title,
+                            Description = entity.Description,
+                            AuthorId = entity.AuthorId,
+                            PublisherId = entity.PublisherId,
+                            SubjectId = entity.SubjectId,
+                            Year = entity.Year,
+                            Photo = entity.Photo,
+                            ISBN = entity.ISBN,
+                            Condition = entity.Condition,
+                            Cost = (float)entity.Cost,
+                        };
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
