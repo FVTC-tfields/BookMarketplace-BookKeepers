@@ -1,4 +1,5 @@
-﻿using BookKeepers.UI.Models;
+﻿using BookKeepers.BL.Models;
+using BookKeepers.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,7 +16,9 @@ namespace BookKeepers.UI.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var books = BL.BookManager.Load();
+            var model = new Home { Books = books };
+            return View(model);
         }
 
         public IActionResult Privacy()
