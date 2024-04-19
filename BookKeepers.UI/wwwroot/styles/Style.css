@@ -121,3 +121,15 @@ body {
 .container{
     background-color: white;
 }
+/*HOME*/
+
+.left-side{
+    border:2px solid black;
+    height:40rem;
+    width:30rem;
+}
+.Right-side {
+    border: 2px solid black;
+    height: 40rem;
+    width: 50rem;
+}

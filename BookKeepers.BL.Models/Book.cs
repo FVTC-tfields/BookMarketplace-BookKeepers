@@ -30,5 +30,6 @@ namespace BookKeepers.BL.Models
 
         [Required]
         public string Description { get; set; }
+        
     }
 }
