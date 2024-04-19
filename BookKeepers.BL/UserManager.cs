@@ -91,13 +91,13 @@ namespace BookKeepers.BL
         {
             try
             {
-                if (!string.IsNullOrEmpty(user.UserName))
+                if (!string.IsNullOrEmpty(user.UserId))
                 {
                     if (!string.IsNullOrEmpty(user.Password))
                     {
                         using (BookKeepersEntities dc = new BookKeepersEntities())
                         {
-                            tblUser tblUser = dc.tblUsers.FirstOrDefault(u => u.UserName == user.UserName);
+                            tblUser tblUser = dc.tblUsers.FirstOrDefault(u => u.UserId == user.UserId);
                             if (tblUser != null)
                             {
                                 if (tblUser.Password == user.Password)
