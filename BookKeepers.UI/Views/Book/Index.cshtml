@@ -21,6 +21,10 @@
             <h6>@Html.DisplayFor(modelItem => item.Title)</h6>
             <h7>@Html.DisplayFor(modelItem => item.AuthorName)</h7>
             <h7>@Html.DisplayFor(modelItem => item.Year)</h7>
+                    <input class="btn btn-success btn-sm"
+                           type="button"
+                           onclick="AddToCart(@item.Id)"
+                           value="+ Cart" />
         </div>
     </div>
     </a>

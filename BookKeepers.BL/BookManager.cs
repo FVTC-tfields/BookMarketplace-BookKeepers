@@ -83,7 +83,7 @@ namespace BookKeepers.BL
                                 Year = row.Year,
                                 AuthorName = AuthorManager.GetById(row.AuthorId).FullName,
                                 SubjectName = SubjectManager.GetById(row.SubjectId).Title,
-                                Condition = row.Condition
+                                Condition = row.Condition,
                             };
                         }
                         else
@@ -98,11 +98,11 @@ namespace BookKeepers.BL
                                 Year = row.Year,
                                 AuthorId = row.AuthorId,
                                 SubjectId = row.SubjectId,
-                                Condition = row.Condition
+                                Condition = row.Condition,
                             };
                         }
                     }
-                    else 
+                    else
                     {
                         throw new Exception("Row does not exist.");
                     }
@@ -236,43 +236,43 @@ namespace BookKeepers.BL
             }
         }
 
-        public static Book LoadById(int id)
-        {
-            try
-            {
-                using (BookKeepersEntities dc = new BookKeepersEntities())
-                {
-                    tblBook entity = dc.tblBooks.FirstOrDefault(m => m.Id == id);
+        //public static Book LoadById(int id)
+        //{
+        //    try
+        //    {
+        //        using (BookKeepersEntities dc = new BookKeepersEntities())
+        //        {
+        //            tblBook entity = dc.tblBooks.FirstOrDefault(m => m.Id == id);
 
-                    if (entity != null)
-                    {
-                        return new Book
-                        {
-                            Id = entity.Id,
-                            Title = entity.Title,
-                            Description = entity.Description,
-                            AuthorId = entity.AuthorId,
-                            PublisherId = entity.PublisherId,
-                            SubjectId = entity.SubjectId,
-                            Year = entity.Year,
-                            Photo = entity.Photo,
-                            ISBN = entity.ISBN,
-                            Condition = entity.Condition,
-                            Cost = (float)entity.Cost,
-                        };
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
+        //            if (entity != null)
+        //            {
+        //                return new Book
+        //                {
+        //                    Id = entity.Id,
+        //                    Title = entity.Title,
+        //                    Description = entity.Description,
+        //                    AuthorId = entity.AuthorId,
+        //                    PublisherId = entity.PublisherId,
+        //                    SubjectId = entity.SubjectId,
+        //                    Year = entity.Year,
+        //                    Photo = entity.Photo,
+        //                    ISBN = entity.ISBN,
+        //                    Condition = entity.Condition,
+        //                    Cost = (float)entity.Cost,
+        //                };
+        //            }
+        //            else
+        //            {
+        //                throw new Exception();
+        //            }
+        //        }
 
-            }
-            catch (Exception)
-            {
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
     }
 }

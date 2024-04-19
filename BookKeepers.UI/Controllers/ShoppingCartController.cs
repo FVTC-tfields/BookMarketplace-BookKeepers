@@ -44,7 +44,7 @@ namespace BookKeepers.UI.Controllers
         public IActionResult Add(int id)
         {
             cart = GetShoppingCart();
-            Book book = BookManager.LoadById(id);
+            Book book = BookManager.GetById(id);
             ShoppingCartManager.Add(cart, book);
             HttpContext.Session.SetObject("cart", cart);
             return RedirectToAction(nameof(Index), "Movie");

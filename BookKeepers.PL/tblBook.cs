@@ -9,7 +9,6 @@ namespace BookKeepers.PL
     public class tblBook
     {
         public int Id { get; set; }
-        public float Cost { get; set; }
         public int AuthorId { get; set; }
         public int PublisherId { get; set; }
         public int SubjectId { get; set; }
@@ -18,6 +17,5 @@ namespace BookKeepers.PL
         public string? Photo { get; set; }
         public string? ISBN { get; set; }
         public string? Condition { get; set; }
-        public string? Description { get; set; }
     }
 }
