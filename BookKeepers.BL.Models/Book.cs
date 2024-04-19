@@ -27,5 +27,9 @@ namespace BookKeepers.BL.Models
         public string? PublisherName { get; set; }
         [DisplayName("Subject")]
         public string? SubjectName { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+        
     }
 }
