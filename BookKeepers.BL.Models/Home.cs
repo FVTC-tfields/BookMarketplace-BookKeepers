@@ -11,5 +11,7 @@ namespace BookKeepers.BL.Models
         public List<Book> Books { get; set; }
 
         public Home() => Books = new List<Book>();
+
+        public List<User> Users { get; set; }
     }
 }

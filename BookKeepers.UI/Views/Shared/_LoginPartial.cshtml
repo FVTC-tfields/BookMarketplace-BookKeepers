@@ -1,0 +1,35 @@
+﻿@model BookKeepers.BL.Models.User
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Sign in</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Login">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="UserId"></label>
+                            <input asp-for="UserId" class="form-control mb-3" type="text" required />
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" type="password" class="form-control mb-3" required />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-grid">
+                                <button class="btn btn-primary" type="submit">Sign in</button>
+                                <a class="btn btn-link" href="@Url.Action("Create", "User")">Not enrolled? Sign up now</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

@@ -5,12 +5,23 @@
 <!DOCTYPE html>
 <div class="text-center">
     <h1 class="display-4">The Book Marketplace</h1>
+</div>
+
     <div class="flexbox">
         <div class="left-side">
-            <h3>Sign in</h3>
+            <partial name="_LoginPartial" model="Model.Users" />
         </div>
         
         <div class="Right-side">
+        <div class="navbar-left" style="margin-top: 8px;">
+            @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+            {
+                <div style="display: flex; align-items: center;">
+                    <input type="text" name="searchString" value="@ViewBag.CurrentFilter" style="width: 100%;" />
+                    <input type="submit" value="Search" style="margin-left: 10px; margin-bottom: 30px; height: 54px;" />
+                </div>
+            }
+        </div>
             <partial name="_BookPartial" model="Model.Books" />
         </div>
 
