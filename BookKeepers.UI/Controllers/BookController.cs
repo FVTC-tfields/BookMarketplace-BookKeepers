@@ -1,5 +1,6 @@
 ﻿using BookKeepers.BL;
 using BookKeepers.BL.Models;
+using BookKeepers.UI.Models;
 using BookKeepers.UI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +10,10 @@ namespace TJO.DVDCentral.UI.Controllers
 {
     public class BookController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public BookController(IWebHostEnvironment webHostEnvironment) { 
+            _webHostEnvironment = webHostEnvironment;
+        }
         public IActionResult Index()
         {
             ViewBag.Title = "List of All Books";
@@ -29,11 +34,35 @@ namespace TJO.DVDCentral.UI.Controllers
         }
         [HttpPost]
 
-        public IActionResult Create(Book book)
+        public async Task<IActionResult> Create(BookModel bookModel)
         {
             try
             {
+                //Upload image to the server
+                if (bookModel.CoverPhoto != null) {
+                    string folder = "img/";
+                    folder += bookModel.CoverPhoto.FileName;
+                    bookModel.CoverPhotoUrl = bookModel.CoverPhoto.FileName;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                    await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                }
+
+                //Create a new Book object
+
+                Book book = new Book()
+                {
+                    Title = bookModel.Title,
+                    Year    = bookModel.Year,
+                    Photo   = bookModel.CoverPhotoUrl,
+                    ISBN = bookModel.ISBN,
+                    Condition = bookModel.Condition,
+                    SubjectId   = bookModel.SubjectId,
+                    AuthorId    = bookModel.AuthorId,
+                    PublisherId = bookModel.PublisherId,
+                };
+
                 int result = BookManager.Insert(book);
+                
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
