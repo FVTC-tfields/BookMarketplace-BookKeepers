@@ -30,11 +30,12 @@ namespace BookKeepers.BL
                          b.Year,
                          b.Photo,
                          b.ISBN,
+                         b.Cost,
                          b.Condition,
                          a.FirstName,
                          a.LastName,
                          p.Name,
-                         SubjectName = s.Title 
+                         SubjectName = s.Title
 
                      })
                      .ToList()
@@ -45,11 +46,12 @@ namespace BookKeepers.BL
                         Year = book.Year,
                         Photo = book.Photo,
                         ISBN = book.ISBN,
+                        Cost = Convert.ToDecimal(book.Cost),
                         Condition = book.Condition,
                         AuthorName = String.Format("{0} {1}", book.FirstName, book.LastName),
                         PublisherName = book.Name,
                         SubjectName = book.SubjectName,
-                    }));
+                    })); ;
                 }
 
                 return list;
@@ -81,6 +83,7 @@ namespace BookKeepers.BL
                                 ISBN = row.ISBN,
                                 Photo = row.Photo,
                                 Year = row.Year,
+                                Cost = Decimal.Parse(row.Cost.ToString()),
                                 AuthorName = AuthorManager.GetById(row.AuthorId).FullName,
                                 SubjectName = SubjectManager.GetById(row.SubjectId).Title,
                                 Condition = row.Condition,
@@ -96,6 +99,7 @@ namespace BookKeepers.BL
                                 ISBN = row.ISBN,
                                 Photo = row.Photo,
                                 Year = row.Year,
+                                Cost = Decimal.Parse(row.Cost.ToString()),
                                 AuthorId = row.AuthorId,
                                 SubjectId = row.SubjectId,
                                 Condition = row.Condition,
@@ -134,6 +138,7 @@ namespace BookKeepers.BL
                     row.Year = book.Year;
                     row.Photo = book.Photo;
                     row.ISBN = book.ISBN;
+                    row.Cost =  book.Cost; 
                     row.Condition = book.Condition;
                     row.SubjectId = book.SubjectId;
                     row.AuthorId = book.AuthorId;
@@ -212,6 +217,7 @@ namespace BookKeepers.BL
                         row.Title = book.Title;
                         row.ISBN = book.ISBN;
                         row.Year = book.Year;
+                        row.Cost =  book.Cost;
                         row.SubjectId = book.SubjectId;
                         row.PublisherId = book.PublisherId;
                         row.AuthorId = book.AuthorId;

@@ -38,14 +38,14 @@ namespace BookKeepers.BL.Models
                 }
             }
 
-            TotalCost += book.Cost;
+            TotalCost += Convert.ToDouble(book.Cost);
         }
 
         public void Remove(Book book)
         {
             foreach (var item in Items.Where(n => n.Id == book.Id))
             {
-                TotalCost -= (item.Cost * item.Quantity);
+                TotalCost -= (Convert.ToDouble(item.Cost) * item.Quantity);
             }
             Items.Remove(book);
         }

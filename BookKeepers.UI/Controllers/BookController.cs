@@ -59,6 +59,7 @@ namespace TJO.DVDCentral.UI.Controllers
                     SubjectId   = bookModel.SubjectId,
                     AuthorId    = bookModel.AuthorId,
                     PublisherId = bookModel.PublisherId,
+                    Cost = bookModel.Cost,
                 };
 
                 int result = BookManager.Insert(book);

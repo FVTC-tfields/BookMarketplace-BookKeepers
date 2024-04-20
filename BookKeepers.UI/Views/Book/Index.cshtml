@@ -20,15 +20,16 @@
                 <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
         </a>
         <div class="info">
-                <a asp-route-id="@item.Id" asp-action="Details">
-            <h6>@Html.DisplayFor(modelItem => item.Title)</h6>
-            <h7>@Html.DisplayFor(modelItem => item.AuthorName)</h7>
-            <h7>@Html.DisplayFor(modelItem => item.Year)</h7>
-            </a>
-                    <input class="addToCart"
-                           type="button"
-                           onclick="AddToCart(@item.Id)"
-                           value="Add to Cart" />
+            <a asp-route-id="@item.Id" asp-action="Details">
+                <h6>@Html.DisplayFor(modelItem => item.Title)</h6><br>
+                <h7>@Html.DisplayFor(modelItem => item.AuthorName)</h7><br>
+                <h7>@Html.DisplayFor(modelItem => item.Year)</h7><br>
+                <h7 class="card-price">@Html.DisplayFor(modelItem => item.Cost)</h7>
+                </a><br>
+            <input class="addToCart"
+                    type="button"
+                    onclick="AddToCart(@item.Id)"
+                    value="Add to Cart" />
         </div>
     </div>
     

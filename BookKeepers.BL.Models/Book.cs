@@ -19,7 +19,7 @@ namespace BookKeepers.BL.Models
         public string? Photo { get; set; }
         public string? ISBN { get; set; }
         public int Quantity { get; set; }
-        public float Cost { get; set; }
+        public Decimal Cost { get; set; }
         public string? Condition { get; set; }
         [DisplayName("Author")]
         public string? AuthorName { get; set; }

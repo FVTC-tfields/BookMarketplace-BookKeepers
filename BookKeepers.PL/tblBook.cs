@@ -16,6 +16,7 @@ namespace BookKeepers.PL
         public string? Year { get; set; }
         public string? Photo { get; set; }
         public string? ISBN { get; set; }
+        public decimal Cost { get; set; }
         public string? Condition { get; set; }
     }
 }
