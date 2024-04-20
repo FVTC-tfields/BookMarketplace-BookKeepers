@@ -1,6 +1,7 @@
 ﻿/*This is all the stuff for the Nav*/
 .Nav-container {
     width: 100%;
+    margin-top:1rem;
     margin-right: auto;
     margin-left: auto;
     max-width: 960px;
@@ -74,7 +75,6 @@
 .a1:hover .a2:hover .a3:hover{
     color:yellow;
 }
-/*END NAV*/
 /*Books box*/
 .flexbox{
     display:flex;
@@ -89,31 +89,47 @@
 }
 
 .books {
-    width: 15rem;
-    height: 25rem;
+    position:relative;
+    width: 20rem;
+    height:100%;
+    padding:1rem;
     overflow:hidden;
-    box-shadow: 1px 1px 10px 1px black;
-    background-color:white;
-    
-  
+    background-color:transparent;
+    border-radius:20px;
 }
-    .books:hover {
-        width: 20rem;
-        height: 30rem;
-    }
     .books img {
-        width: inherit;
-        height: 82%;
-        
+        position:center;
+        width: 99%;
+        height: 85%; 
+    }
+    .books:hover {
+        top:-1rem;
+        box-shadow:1px 10px 10px 1px;
     }
 .info{
-    height:5rem;
+    display:flex;
     width:auto;
-    padding:0.1rem;
+    padding:0.4rem;
     padding-left:0.5rem;
-    background-color: white;
+    background-color: transparent;
+    
 }
-/*END BOOK BOX*/
+.info a{
+    text-decoration: none;
+    color:black;
+}
+.addToCart{
+   position:relative;
+   align-self:end;
+   height:40%;
+   border:none;
+   background-color:lightblue;
+   border-radius:10px;
+}
+.addToCart:hover{
+    top:-2px;
+    box-shadow:1px 2px 5px 1px;
+}
 /*Body*/
 body {
     background-color: #EAEDED;
@@ -122,14 +138,36 @@ body {
     background-color: white;
 }
 /*HOME*/
-
-.left-side{
-    border:2px solid black;
-    height:40rem;
-    width:30rem;
+.left-side {
+    border-right: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 2px 0px 2px 0px ;
+    padding:1rem;
+    width: 30rem;
 }
 .Right-side {
-    border: 2px solid black;
-    height: 40rem;
-    width: 50rem;
+    border-left: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: -2px 0px 2px 0px;
+    padding:1rem;
+    width: 51rem;
+}
+/*Cart*/
+.cartItems {
+    border-right: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 2px 0px 2px 0px;
+    padding: 1rem;
+    width: 57rem;
+    margin:1rem;
+    margin-right:-1rem;
+}
+.cartTotals {
+    border-left: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: -2px 0px 2px 0px;
+    padding: 1rem;
+    width: 20rem;
+    margin: 1rem;
+    margin-left: -1rem;
 }

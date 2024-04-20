@@ -5,15 +5,14 @@
     ViewBag.Active = "ShoppingCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="flexbox">
+    <div class="cartItems">
 <table class="table">
     <tr>
         <th>
             Title
         </th>
-        <th>
-            Description
-        </th>
+        
         <th>
             Cost
         </th>
@@ -40,7 +39,8 @@
         </tr>
     }
 </table>
-<hr>
+    </div>
+<div class="cartTotals">
 <table class="table">
     <tr>
         <td class="font-weight-bold">Total Cost</td>
@@ -100,10 +100,11 @@
         <td></td>
     </tr>
 </table>
-
+    
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         @Html.ActionLink("Check Out", "Checkout", "ShoppingCart", null, new { @class = "btn btn-primary" })
     </div>
 </div>
-</table>
+    </div>
+</div>

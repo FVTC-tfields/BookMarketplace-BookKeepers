@@ -14,20 +14,24 @@
 
 <div class="flexbox">
 @foreach (var item in Model) {
-        <a class"boxLink" asp-route-id="@item.Id" asp-action="Details">
+        
     <div class="books">
+        <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
                 <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
+        </a>
         <div class="info">
+                <a asp-route-id="@item.Id" asp-action="Details">
             <h6>@Html.DisplayFor(modelItem => item.Title)</h6>
             <h7>@Html.DisplayFor(modelItem => item.AuthorName)</h7>
             <h7>@Html.DisplayFor(modelItem => item.Year)</h7>
-                    <input class="btn btn-success btn-sm"
+            </a>
+                    <input class="addToCart"
                            type="button"
                            onclick="AddToCart(@item.Id)"
-                           value="+ Cart" />
+                           value="Add to Cart" />
         </div>
     </div>
-    </a>
+    
 }
 </div>
 
