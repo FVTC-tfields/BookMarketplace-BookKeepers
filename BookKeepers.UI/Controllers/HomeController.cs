@@ -1,14 +1,19 @@
 ﻿using BookKeepers.BL;
 using BookKeepers.BL.Models;
+using BookKeepers.PL;
 using BookKeepers.UI.Extensions;
 using BookKeepers.UI.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace BookKeepers.UI.Controllers
 {
     public class HomeController : Controller
     {
+        private BookKeepersEntities bookKeepersEntities = new BookKeepersEntities();
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -33,6 +38,8 @@ namespace BookKeepers.UI.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //Login
 
         public IActionResult Seed()
         {
@@ -157,6 +164,35 @@ namespace BookKeepers.UI.Controllers
                 return View();
             }
         }
+
+        // Search
+
+        public ActionResult Search(string searchString)
+        {
+            var tblBooks = bookKeepersEntities.tblBooks.Where(b => b.Title.Contains(searchString)).ToList();
+
+            var books = tblBooks.Select(b => new Book
+            {
+                Id = b.Id,
+                AuthorId = b.AuthorId,
+                PublisherId = b.PublisherId,
+                SubjectId = b.SubjectId,
+                Title = b.Title,
+                Year = b.Year,
+                Photo = b.Photo,
+                ISBN = b.ISBN,
+                Cost = b.Cost,
+                Condition = b.Condition
+
+            }).ToList();
+
+            var model = new Home { Books = books };
+
+            ViewBag.IsSearch = true;
+
+            return PartialView("_SearchPartial", books);
+        }
+
     }
 }
 

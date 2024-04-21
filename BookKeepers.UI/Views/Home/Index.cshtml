@@ -9,21 +9,44 @@
 
     <div class="flexbox">
         <div class="left-side">
-            <partial name="_LoginPartial" model="Model.Users" />
+            @if (BookKeepers.UI.Models.Authenticate.IsAuthenticated(Context))
+            {
+                <div class="header p-1">
+                    <h4>Shopping Cart</h4>
+                </div>
+                <div>
+                    @await Component.InvokeAsync("ShoppingCartComponent")
+                </div>
+            }
+            else
+            {
+                <partial name="_LoginPartial" model="Model.Users" />
+            }
+        
         </div>
         
         <div class="Right-side">
         <div class="navbar-left" style="margin-top: 8px;">
-            @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+            @using (Html.BeginForm("Search", "Home", FormMethod.Get))
             {
                 <div style="display: flex; align-items: center;">
                     <input type="text" name="searchString" value="@ViewBag.CurrentFilter" style="width: 100%;" />
                     <input type="submit" value="Search" style="margin-left: 10px; margin-bottom: 30px; height: 54px;" />
                 </div>
             }
-        </div>
-            <partial name="_BookPartial" model="Model.Books" />
-        </div>
+            @if (ViewBag.IsSearch == true)
+            {
+
+                <div>
+                    <partial name="_SearchPartial" model="Model.Books" />
+                </div>
+            }
+            else
+            {
+                <div>
+                    <partial name = "_BookPartial" model="Model.Books" />
+                </div>
+            }
 
         @section Scripts {
             @{

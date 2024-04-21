@@ -1,0 +1,21 @@
+﻿@model BookKeepers.BL.Models.ShoppingCart
+
+    <div class="cartItems">
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+    </div>

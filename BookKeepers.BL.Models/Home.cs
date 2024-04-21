@@ -13,5 +13,7 @@ namespace BookKeepers.BL.Models
         public Home() => Books = new List<Book>();
 
         public List<User> Users { get; set; }
+
+        public List<ShoppingCart> ShoppingCarts { get; set; }
     }
 }
