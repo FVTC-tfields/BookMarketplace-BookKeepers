@@ -5,7 +5,7 @@ namespace BookKeepers.UI.Models
 {
     public class BookModel : Book
     {
-        [Display(Name = "Choose the cover photo of your book")]
+        [Display(Name = "Photo")]
         [Required]
         public IFormFile CoverPhoto { get; set; }
         public string CoverPhotoUrl { get; set; }
