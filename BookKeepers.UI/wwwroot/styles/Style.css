@@ -118,17 +118,30 @@
     text-decoration: none;
     color:black;
 }
-.addToCart{
+.btnStyle{
    position:relative;
-   align-self:end;
-   height:40%;
+   text-align:center;
+   padding:.5rem;
    border:none;
    background-color:lightblue;
    border-radius:10px;
 }
-.addToCart:hover{
-    top:-2px;
-    box-shadow:1px 2px 5px 1px;
+    .btnStyle:hover {
+        top: -2px;
+        box-shadow: 1px 2px 5px 1px;
+    }
+    .btnStyle:active {
+        top: 2px;
+        box-shadow: 1px 2px 5px 1px;
+    }
+.LinkStyle a{
+    text-decoration:none;
+    color:black;
+    
+}
+.CreatNew{
+    width:7rem;
+    margin:1rem;
 }
 /*Body*/
 body {
@@ -136,6 +149,7 @@ body {
 }
 .container{
     background-color: white;
+    padding:1rem 0 0 0;
 }
 /*HOME*/
 .left-side {

@@ -5,39 +5,28 @@
     ViewBag.Active = "Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br>
-<p>
-   <a class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
-
-<section class="pricing py-5">
-    <div class="container">
-        <div class="row">
+<div class="LinkStyle btnStyle CreatNew">
+    <a class="" asp-action="Create">Create New</a>
+</div>
+<div class="flexbox">
         @foreach (var item in Model) {
-            <div class="col-lg-4">
-                <div class="card mb-5 mb-lg-0">
-                    <div class="card-body">
-                            <h6 class="card-price text-center">$@Html.DisplayFor(modelItem => item.Cost)</h6>
-                        <hr>
-                            <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
-                                <img width="300" height="400" src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
-                            </a><br>
-                            <a style="text-decoration: none; color: black;" asp-route-id="@item.Id" asp-action="Details">
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>@Html.DisplayFor(modelItem => item.Title) <br>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>@Html.DisplayFor(modelItem => item.AuthorName)<br>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>@Html.DisplayFor(modelItem => item.Year)
-                            </a><br>
-                     
-                            <div class="d-grid">
-                                <input class="btn btn-primary"
-                                    type="button"
-                                    onclick="AddToCart(@item.Id)"
-                                    value="Add to Cart" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            }
+
+    <div class="books">
+        <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
+        <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
+            <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
+        </a>
+            <div class="info">
+        <a asp-route-id="@item.Id" asp-action="Details">
+            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+            <h5>@Html.DisplayFor(modelItem => item.AuthorName)</h5>
+            <h5>@Html.DisplayFor(modelItem => item.Year)</h5>
+        </a>
         </div>
-    </div>
-</section>
+            <input class="btnStyle"
+                type="button"
+                onclick="AddToCart(@item.Id)"
+                value="Add to Cart" />   
+  </div>
+         }
+</div>
