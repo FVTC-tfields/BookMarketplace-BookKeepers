@@ -123,6 +123,7 @@
    text-align:center;
    padding:.5rem;
    border:none;
+   color:black;
    background-color:lightblue;
    border-radius:10px;
 }
@@ -139,9 +140,13 @@
     color:black;
     
 }
-.CreatNew{
-    width:7rem;
-    margin:1rem;
+.CreatNew {
+    width: 7rem;
+    height: 2.5rem;
+    margin: 1rem;
+    margin-left: 10px;
+    margin-bottom: 2.6rem;
+   
 }
 /*Body*/
 body {
@@ -149,7 +154,7 @@ body {
 }
 .container{
     background-color: white;
-    padding:1rem 0 0 0;
+    padding:1rem .5rem 1rem .5rem;
 }
 /*HOME*/
 .left-side {

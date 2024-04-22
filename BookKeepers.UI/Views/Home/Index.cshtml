@@ -30,8 +30,8 @@
             @using (Html.BeginForm("Search", "Home", FormMethod.Get))
             {
                 <div style="display: flex; align-items: center;">
-                    <input type="text" name="searchString" value="@ViewBag.CurrentFilter" style="width: 100%;" />
-                    <input type="submit" value="Search" style="margin-left: 10px; margin-bottom: 30px; height: 54px;" />
+                    <input type="text" name="searchString" value="@ViewBag.CurrentFilter"/>
+                    <input class="btnStyle CreatNew" type="submit" value="Search" />
                 </div>
             }
             @if (ViewBag.IsSearch == true)

@@ -9,25 +9,25 @@
 <h1>Search Results</h1>
 
 <div class="flexbox">
-@foreach (var item in Model) {
-        
-    <div class="books">
-        <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
+    @foreach (var item in Model)
+    {
+
+        <div class="books">
+            <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
+            <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
                 <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
-        </a>
-        <div class="info">
-            <a asp-route-id="@item.Id" asp-action="Details">
-                <h6>@Html.DisplayFor(modelItem => item.Title)</h6><br>
-                <h7>@Html.DisplayFor(modelItem => item.AuthorName)</h7><br>
-                <h7>@Html.DisplayFor(modelItem => item.Year)</h7><br>
-                <h7 class="card-price">@Html.DisplayFor(modelItem => item.Cost)</h7>
-                </a><br>
-            <input class="addToCart"
-                    type="button"
-                    onclick="AddToCart(@item.Id)"
-                    value="Add to Cart" />
+            </a>
+            <div class="info">
+                <a asp-route-id="@item.Id" asp-action="Details">
+                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    <h5>@Html.DisplayFor(modelItem => item.AuthorName)</h5>
+                    <h5>@Html.DisplayFor(modelItem => item.Year)</h5>
+                </a>
+            </div>
+            <input class="btnStyle"
+                   type="button"
+                   onclick="AddToCart(@item.Id)"
+                   value="Add to Cart" />
         </div>
-    </div>
-    
-}
+    }
 </div>
