@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="flexbox">
-    <div class="cartItems">
+    <div class="left-side cartItems">
 <table class="table">
     <tr>
         <th>
@@ -33,14 +33,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
-            <td>
-                @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Id })
-            </td>
+            <td class="LinkStyle">
+
+                        <input class="btnStyle"
+                               type="button"
+                               onclick="Remove(@item.Id)"
+                               value="Remove" />
+
+                    </td>
         </tr>
     }
 </table>
     </div>
-<div class="cartTotals">
+<div class="Right-side cartTotals">
 <table class="table">
     <tr>
         <td class="font-weight-bold">Total Cost</td>
@@ -99,11 +104,13 @@
         <td></td>
         <td></td>
     </tr>
-</table>
-    
+</table>  
 <div class="form-group">
             <div class="col-md-offset-2 col-md-10 LinkStyle">
-                @Html.ActionLink("Check Out", "Checkout", "ShoppingCart", null, new { @class = "btnStyle" })
+                <input class="btnStyle"
+                       type="button"
+                       onclick="Checkout(@Model.Id)"
+                       value="Check Out" />
     </div>
 </div>
     </div>

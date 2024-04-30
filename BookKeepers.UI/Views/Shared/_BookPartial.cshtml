@@ -6,11 +6,11 @@
 
         <div class="books">
             <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
-            <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
+            <a class"boxLinkImg" asp-route-id="@item.Id" asp-controller="Book" asp-action="Details">
                 <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
             </a>
             <div class="info">
-                <a asp-route-id="@item.Id" asp-action="Details">
+                <a asp-route-id="@item.Id" asp-controller="Book" asp-action="Details">
                     <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
                     <h5>@Html.DisplayFor(modelItem => item.AuthorName)</h5>
                     <h5>@Html.DisplayFor(modelItem => item.Year)</h5>

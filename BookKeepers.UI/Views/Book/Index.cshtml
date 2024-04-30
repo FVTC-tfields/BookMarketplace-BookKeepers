@@ -14,7 +14,7 @@
     <div class="books">
         <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
         <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
-            <img src="~/img/@Html.DisplayFor(modelItem => item.Photo)" />
+          <img src="~/img/@item.Photo" />
         </a>
             <div class="info">
         <a asp-route-id="@item.Id" asp-action="Details">

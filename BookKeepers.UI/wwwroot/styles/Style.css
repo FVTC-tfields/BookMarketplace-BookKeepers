@@ -1,4 +1,31 @@
-﻿/*This is all the stuff for the Nav*/
+﻿/*Body*/
+.flexbox {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+body {
+    background-color: #EAEDED;
+}
+
+.container {
+    background-color: white;
+    padding: 1rem .5rem 1rem .5rem;
+}
+.left-side {
+    border-right: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 2px 0px 2px 0px;
+    padding: 1rem;
+}
+
+.Right-side {
+    border-left: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: -2px 0px 2px 0px;
+    padding: 1rem;
+}
+/*This is all the stuff for the Nav*/
 .Nav-container {
     width: 100%;
     margin-top:1rem;
@@ -76,12 +103,6 @@
     color:yellow;
 }
 /*Books box*/
-.flexbox{
-    display:flex;
-    flex-flow:row wrap;
-    justify-content:space-around;
-}
-
 .boxLink {
     display:block;
     text-decoration: none;
@@ -148,45 +169,28 @@
     margin-bottom: 2.6rem;
    
 }
-/*Body*/
-body {
-    background-color: #EAEDED;
-}
-.container{
-    background-color: white;
-    padding:1rem .5rem 1rem .5rem;
-}
 /*HOME*/
-.left-side {
-    border-right: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: 2px 0px 2px 0px ;
-    padding:1rem;
-    width: 30rem;
-}
-.Right-side {
-    border-left: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: -2px 0px 2px 0px;
-    padding:1rem;
-    width: 51rem;
+.home-Content{
+    width: 60.5rem;
 }
 /*Cart*/
 .cartItems {
-    border-right: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: 2px 0px 2px 0px;
-    padding: 1rem;
     width: 57rem;
-    margin:1rem;
-    margin-right:-1rem;
+    margin: 1rem;
+    margin-right: -1rem;
 }
 .cartTotals {
-    border-left: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: -2px 0px 2px 0px;
-    padding: 1rem;
     width: 20rem;
     margin: 1rem;
     margin-left: -1rem;
+}
+/*Details*/
+.details-Left{
+    width:40.5rem;
+}
+.details-Right{
+    width:40.5rem;
+}
+.btnBottom{
+    margin-top:.5rem;
 }
