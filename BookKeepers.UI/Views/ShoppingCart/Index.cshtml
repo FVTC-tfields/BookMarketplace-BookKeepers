@@ -34,13 +34,12 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td class="LinkStyle">
+                <button class="btnStyle" onclick="deleteItem(@item.Id)">Remove
+                    <a class="" asp-action="Index"></a>
+                </button>
+                
+            </td>
 
-                        <input class="btnStyle"
-                               type="button"
-                               onclick="Remove(@item.Id)"
-                               value="Remove" />
-
-                    </td>
         </tr>
     }
 </table>

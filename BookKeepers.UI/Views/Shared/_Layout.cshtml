@@ -102,3 +102,26 @@
         });
     }
 </script>
+
+<script type="text/javascript">
+    function deleteItem(itemId) {
+        if (confirm("Are you sure you want to remove this item from your cart?")) {
+            var xhr = new XMLHttpRequest();
+
+            var url = '/ShoppingCart/remove?id=' + itemId;
+
+            xhr.open('DELETE', url, true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log('Item deleted successfully');
+                    window.location.reload();
+                } else {
+                    console.error('Error deleting item: ' + xhr.responseText);
+                }
+            };
+
+            xhr.send();
+        }
+    }
+</script>

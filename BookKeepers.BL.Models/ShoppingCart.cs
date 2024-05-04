@@ -29,6 +29,7 @@ namespace BookKeepers.BL.Models
             if (!Items.Any(n => n.Id == book.Id))
             {
                 Items.Add(book);
+                book.Quantity++;
             }
             else
             {
@@ -49,5 +50,6 @@ namespace BookKeepers.BL.Models
             }
             Items.Remove(book);
         }
+
     }
 }
