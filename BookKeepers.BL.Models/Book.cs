@@ -28,6 +28,5 @@ namespace BookKeepers.BL.Models
         [DisplayName("Subject")]
         public string? SubjectName { get; set; }
 
-        
     }
 }

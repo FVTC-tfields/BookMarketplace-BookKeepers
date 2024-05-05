@@ -15,10 +15,18 @@ namespace TJO.DVDCentral.UI.Controllers
         public BookController(IWebHostEnvironment webHostEnvironment) { 
             _webHostEnvironment = webHostEnvironment;
         }
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
+            var books = BookManager.Load();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.Title.Contains(searchString)).ToList();
+            }
+
+            ViewBag.IsSearch = !String.IsNullOrEmpty(searchString);
             ViewBag.Title = "List of All Books";
-            return View(BookManager.Load());
+            return View(books);
         }
 
         public IActionResult Details(int id)
@@ -127,6 +135,18 @@ namespace TJO.DVDCentral.UI.Controllers
             ViewBag.subjects = new SelectList(subjects, "Id", "Title");
         }
 
-        
+        public IActionResult Search(string searchString)
+        {
+            var books = BookManager.Load();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.Title.Contains(searchString)).ToList();
+            }
+
+            return View("Index", books);
+        }
+
+
     }
 }

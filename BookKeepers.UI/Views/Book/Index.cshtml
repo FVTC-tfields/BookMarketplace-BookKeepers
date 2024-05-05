@@ -5,28 +5,55 @@
     ViewBag.Active = "Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("Search", "Book", FormMethod.Get))
+{
+    <div style="display: flex; align-items: center;">
+        <input type="text" name="searchString" value="@ViewBag.CurrentFilter" />
+        <input class="btnStyle CreatNew" type="submit" value="Search" />
+    </div>
+}
 <div class="LinkStyle btnStyle CreatNew">
     <a class="" asp-action="Create">Create New</a>
 </div>
 <div class="flexbox">
-        @foreach (var item in Model) {
+        
+        @if (ViewBag.IsSearch == true)
+        {
 
-    <div class="books">
-        <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
-        <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
-          <img src="~/img/@item.Photo" />
-        </a>
-            <div class="info">
-        <a asp-route-id="@item.Id" asp-action="Details">
-            <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
-            <h5>@Html.DisplayFor(modelItem => item.AuthorName)</h5>
-            <h5>@Html.DisplayFor(modelItem => item.Year)</h5>
-        </a>
-        </div>
-            <input class="btnStyle"
-                type="button"
-                onclick="AddToCart(@item.Id)"
-                value="Add to Cart" />   
-  </div>
-         }
+            <div>
+                <partial name="_SearchPartial" model="Model" />
+            </div>
+        }
+        else
+        {
+        @foreach (var item in Model)
+        {
+
+            <div class="books">
+
+                <h4>$@Html.DisplayFor(modelItem => item.Cost)</h4>
+                <a class"boxLinkImg" asp-route-id="@item.Id" asp-action="Details">
+                    <img src="~/img/@item.Photo" />
+                </a>
+                <div class="info">
+                    <a asp-route-id="@item.Id" asp-action="Details">
+                        <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                        <h5>@Html.DisplayFor(modelItem => item.AuthorName)</h5>
+                        <h5>@Html.DisplayFor(modelItem => item.Year)</h5>
+                    </a>
+                </div>
+                <input class="btnStyle"
+                       type="button"
+                       onclick="AddToCart(@item.Id)"
+                       value="Add to Cart" />
+            </div>
+        }
+        }
+
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }
+        
 </div>
