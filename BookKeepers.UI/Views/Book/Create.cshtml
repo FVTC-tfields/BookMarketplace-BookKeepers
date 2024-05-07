@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div class="container Right-side">
 
-    <h3 class="display-4">Add new book</h3>
+    <h3>Add new book</h3>
     <hr>
         <form method="post" enctype="multipart/form-data" asp-action="Create" asp-controller="Book">
 
@@ -68,15 +68,18 @@
             </select>
             <span asp-validation-for="SubjectId" class="text-danger"></span>
         </div>
+        <div class="flexbox">
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btnStyle" />
             </div>
+            <div class="btnStyle LinkStyle">
+            <a asp-action="Index">Back to List</a>
+        </div>
+        </div>
         </form>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

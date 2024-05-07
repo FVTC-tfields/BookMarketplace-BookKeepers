@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: transparent;
     padding: 1rem .5rem 1rem .5rem;
 }
 .left-side {
@@ -17,6 +17,7 @@ body {
     border-radius: 20px 20px 20px 20px;
     box-shadow: 2px 0px 2px 0px;
     padding: 1rem;
+    background-color:white;
 }
 
 .Right-side {
@@ -24,6 +25,31 @@ body {
     border-radius: 20px 20px 20px 20px;
     box-shadow: -2px 0px 2px 0px;
     padding: 1rem;
+    background-color: white;
+}
+.btnStyle {
+    position: relative;
+    text-align: center;
+    padding: .5rem;
+    border: none;
+    color: black;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+    .btnStyle:hover {
+        top: -2px;
+        box-shadow: 1px 2px 5px 1px;
+    }
+
+    .btnStyle:active {
+        top: 2px;
+        box-shadow: 1px 2px 5px 1px;
+    }
+
+.LinkStyle a {
+    text-decoration: none;
+    color: black;
 }
 /*This is all the stuff for the Nav*/
 .Nav-container {
@@ -139,28 +165,7 @@ body {
     text-decoration: none;
     color:black;
 }
-.btnStyle{
-   position:relative;
-   text-align:center;
-   padding:.5rem;
-   border:none;
-   color:black;
-   background-color:lightblue;
-   border-radius:10px;
-}
-    .btnStyle:hover {
-        top: -2px;
-        box-shadow: 1px 2px 5px 1px;
-    }
-    .btnStyle:active {
-        top: 2px;
-        box-shadow: 1px 2px 5px 1px;
-    }
-.LinkStyle a{
-    text-decoration:none;
-    color:black;
-    
-}
+
 .CreatNew {
     width: 7rem;
     height: 2.5rem;
@@ -173,9 +178,12 @@ body {
 .home-Content{
     width: 60.5rem;
 }
+.homeShopingcart{
+    width:21rem;
+}
 /*Cart*/
 .cartItems {
-    width: 57rem;
+    width: 57.5rem;
     margin: 1rem;
     margin-right: -1rem;
 }
@@ -186,11 +194,15 @@ body {
 }
 /*Details*/
 .details-Left{
-    width:40.5rem;
+    width:40.7rem;
 }
 .details-Right{
-    width:40.5rem;
+    width:40.7rem;
 }
 .btnBottom{
     margin-top:.5rem;
+}
+.detailsImg{
+    height:40rem;
+    width:25rem;
 }

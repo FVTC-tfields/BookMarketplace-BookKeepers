@@ -5,6 +5,7 @@
     ViewBag.Active = "Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="Right-side">
 @using (Html.BeginForm("Search", "Book", FormMethod.Get))
 {
     <div style="display: flex; align-items: center;">
@@ -56,4 +57,5 @@
             }
         }
         
+</div>
 </div>

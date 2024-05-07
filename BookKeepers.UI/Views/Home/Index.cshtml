@@ -8,7 +8,7 @@
 </div>
 
     <div class="flexbox">
-        <div class="left-side">
+    <div class="left-side homeShopingcart">
             @if (BookKeepers.UI.Models.Authenticate.IsAuthenticated(Context))
             {
                 <div class="header p-1">
@@ -24,8 +24,14 @@
             }
         
         </div>
+        <br />
+    <div class="Right-side home-Content">
+        <p>Welcome to the book marketplace!
+            This is a store for all to buy any book you can think of.
+            Im going to add more here dont worry</p>
+    </div>
+        <div style="width:100%" class="Right-side home-Content">
         
-        <div class="Right-side home-Content">
         <div class="navbar-left" style="margin-top: 8px;">
             @using (Html.BeginForm("Search", "Home", FormMethod.Get))
             {
