@@ -1,0 +1,115 @@
+﻿@model BookKeepers.BL.Models.ShoppingCart
+
+@{
+    ViewBag.Title = "Shopping Cart";
+    ViewBag.Active = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="flexbox">
+    <div class="left-side cartItems">
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        
+        <th>
+            Cost
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td class="LinkStyle">
+                <button class="btnStyle" onclick="deleteItem(@item.Id)">Remove
+                    <a class="" asp-action="Index"></a>
+                </button>
+                
+            </td>
+
+        </tr>
+    }
+</table>
+    </div>
+<div class="Right-side cartTotals">
+<table class="table">
+    <tr>
+        <td class="font-weight-bold">Total Cost</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.TotalCost.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="font-weight-bold">Tax</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.Tax.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="font-weight-bold">Total Cost</td>
+        <td class="font-weight-bold">
+            @{
+                if (Model.TotalCost > 0)
+                {
+                    @Html.Raw(Model.TCt.ToString("C"))
+                }
+                else
+                {
+                    @Html.Raw("$0.00")
+                    ;
+                }
+            }
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 LinkStyle">
+                <button class="btnStyle" onclick="checkout()">Check Out</button>
+            </div>
+        </div>
+</div>
+    </div>
+</div>

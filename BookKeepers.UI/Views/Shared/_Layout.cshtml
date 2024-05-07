@@ -125,3 +125,23 @@
         }
     }
 </script>
+
+<script type="text/javascript">
+    function checkout() {
+        if (confirm("Are you sure you want to check out?")) {
+            var xhr = new XMLHttpRequest();
+            var url = '/ShoppingCart/Checkout';
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert('Checkout successful!');
+                    //window.location.href = '/Book';
+                } else {
+                    console.error('Error checking out: ' + xhr.responseText);
+                }
+            };
+            xhr.send();
+        }
+    }
+</script>

@@ -50,6 +50,7 @@ namespace BookKeepers.UI.Controllers
             return RedirectToAction(nameof(Index), "Movie");
         }
 
+        [HttpPost]
         public IActionResult Checkout()
         {
             if (Authenticate.IsAuthenticated(HttpContext))

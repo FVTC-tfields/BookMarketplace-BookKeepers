@@ -56,7 +56,7 @@ namespace BookKeepers.BL
                     if (rollback) transaction = dc.Database.BeginTransaction();
 
                     tblOrder newRow = new tblOrder();
-                    
+
                     newRow.Id = dc.tblOrders.Any() ? dc.tblOrders.Max(r => r.Id) + 1 : 1;
                     newRow.CustomerId = order.CustomerId;
                     newRow.OrderDate = DateTime.Now;

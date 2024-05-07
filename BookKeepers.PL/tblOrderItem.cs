@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookKeepers.PL
 {
@@ -12,9 +8,11 @@ namespace BookKeepers.PL
         public int OrderId { get; set; }
         public int BookId { get; set; }
         public int Quantity { get; set; }
-        public float Cost { get; set; }
+        public decimal Cost { get; set; }
         public string? Photo { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
+        public virtual tblBook Book { get; set; }
+        public virtual tblOrder Order { get; set; }
     }
 }

@@ -47,6 +47,22 @@ namespace BookKeepers.BL
             order.OrderDate = DateTime.Now;
             order.UserId = cart.UserId;
             order.ShipDate = DateTime.Now.AddDays(3);
+
+            order.OrderItems = new List<OrderItem>();
+
+            foreach (var item in cart.Items)
+            {
+                OrderItem orderItem = new OrderItem
+                {
+                    Cost = item.Cost,
+                    MovieId = item.Id,
+                    Quantity = item.Quantity,
+                    OrderId = order.Id
+                };
+
+                order.OrderItems.Add(orderItem);
+            }
+
             OrderManager.Insert(order);
         }
 

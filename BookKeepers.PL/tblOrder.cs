@@ -31,5 +31,9 @@ namespace BookKeepers.PL
         public float Total { get; set; }
 
         public float Tax { get; set; }
+
+        public virtual tblCustomer Customer { get; set; }
+
+        public virtual tblUser User { get; set; }
     }
 }

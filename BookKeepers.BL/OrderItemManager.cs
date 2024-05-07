@@ -74,10 +74,13 @@ namespace BookKeepers.BL
 
                 return results;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Log the inner exception for debugging
+                Console.WriteLine("Error saving changes: " + ex.InnerException.Message);
                 throw;
             }
         }
+
     }
 }
