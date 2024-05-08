@@ -62,7 +62,7 @@ namespace BookKeepers.UI.Controllers
                 CustomerViewModel customerVM = new CustomerViewModel();
                 customerVM.Customers = CustomerManager.Load();
 
-                return View("AssignToCustomer", customerVM);
+                return View("ThankYou");
             }
             else
                 return RedirectToAction("Login", "User", new { returnUrl = UriHelper.GetDisplayUrl(HttpContext.Request) });
@@ -135,7 +135,7 @@ namespace BookKeepers.UI.Controllers
                 HttpContext.Session.SetObject("cart", null);
                 // Show the thank you for your order screen
 
-                return View("Checkout");
+                return View("Book");
             }
             catch (Exception ex)
             {
