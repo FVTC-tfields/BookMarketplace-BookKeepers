@@ -178,8 +178,19 @@ body {
 .home-Content{
     width: 60.5rem;
 }
+.home-Content h3,p{
+    text-align:center;
+}
 .homeShopingcart{
     width:21rem;
+}
+.disclaimer{
+    background-color:darkgray;
+    color:red;
+    border-radius:20px;
+    padding:5px;
+
+
 }
 /*Cart*/
 .cartItems {
