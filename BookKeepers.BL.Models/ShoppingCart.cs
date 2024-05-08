@@ -29,7 +29,7 @@ namespace BookKeepers.BL.Models
             if (!Items.Any(n => n.Id == book.Id))
             {
                 Items.Add(book);
-                book.Quantity++;
+                book.Quantity = 1;
             }
             else
             {
@@ -39,16 +39,22 @@ namespace BookKeepers.BL.Models
                 }
             }
 
-            TotalCost += Convert.ToDouble(book.Cost);
+            TotalCost += (Convert.ToDouble(book.Cost) * book.Quantity);
         }
 
         public void Remove(Book book)
         {
-            foreach (var item in Items.Where(n => n.Id == book.Id))
+            var existingBook = Items.FirstOrDefault(n => n.Id == book.Id);
+            if (existingBook != null)
             {
-                TotalCost -= (Convert.ToDouble(item.Cost) * item.Quantity);
+                existingBook.Quantity--;
+                if (existingBook.Quantity == 0)
+                {
+                    Items.Remove(existingBook);
+                }
+                // Recalculate total cost
+                TotalCost -= Convert.ToDouble(existingBook.Cost);
             }
-            Items.Remove(book);
         }
 
     }

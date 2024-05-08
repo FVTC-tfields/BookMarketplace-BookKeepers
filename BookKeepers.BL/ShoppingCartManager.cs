@@ -71,8 +71,14 @@ namespace BookKeepers.BL
             if (!cart.Items.Any(n => n.Id == book.Id))
                 cart.Add(book);
             else
-                cart.Items.Where(n => n.Id == book.Id).FirstOrDefault().Quantity++;
+            {
+                var existingBook = cart.Items.FirstOrDefault(n => n.Id == book.Id);
+                existingBook.Quantity++;
+                // Recalculate total cost
+                cart.TotalCost += Convert.ToDouble(existingBook.Cost);
+            }
         }
+
 
         public static void AssignToCustomer()
         {
